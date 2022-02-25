@@ -1,7 +1,9 @@
 {
   "name": "soundux-next",
-  "private": true,
-  "version": "0.0.0",
+  "description": "Web UI for Soundux",
+  "version": "0.3.0",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://soundux.rocks",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
