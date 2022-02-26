@@ -123,7 +123,6 @@ function TabAppearance() {
           searchPlaceholder="Search..."
           nothingFound="Nothing here"
           titles={['Available CSS', 'Enabled CSS']}
-          breakpoint="sm"
           sx={{ width: '100%' }}
         />
         <GradientButton leftIcon={<FileDirectoryIcon />}>Open Custom CSS Folder</GradientButton>
