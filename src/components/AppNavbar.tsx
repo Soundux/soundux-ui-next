@@ -1,6 +1,12 @@
 import { Divider, Navbar, ScrollArea } from '@mantine/core';
 import FolderButton from './input/FolderButton';
-import { ChevronRightIcon, FileDirectoryIcon, HeartIcon, SyncIcon, XIcon } from '@primer/octicons-react';
+import {
+  ChevronRightIcon,
+  FileDirectoryFillIcon,
+  HeartIcon,
+  SyncIcon,
+  XIcon,
+} from '@primer/octicons-react';
 
 interface Folder {
   name: string;
@@ -38,7 +44,7 @@ function AppNavbar() {
         {folders.map((folder, index) => (
           <FolderButton
             key={index}
-            icon={<FileDirectoryIcon />}
+            icon={<FileDirectoryFillIcon />}
             color={folder.color}
             label={folder.name}
             selected={folder?.selected}
