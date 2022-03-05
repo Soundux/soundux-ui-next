@@ -82,11 +82,11 @@ function BottomBar() {
             <Group direction="column">
               <Group noWrap>
                 <UnmuteIcon />
-                <StyledSlider defaultValue={50} sx={{ width: '200px' }} />
+                <StyledSlider label={value => `${value}%`} defaultValue={50} sx={{ width: '200px' }} />
               </Group>
               <Group noWrap>
                 <MuteIcon />
-                <StyledSlider defaultValue={0} sx={{ width: '200px' }} />
+                <StyledSlider label={value => `${value}%`} defaultValue={0} sx={{ width: '200px' }} />
               </Group>
             </Group>
           </Group>

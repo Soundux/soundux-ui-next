@@ -50,6 +50,7 @@ function TabAppearance() {
           <Slider
             value={transparency}
             onChange={setTransparency}
+            label={value => `${value}%`}
             marks={[{ value: 25 }, { value: 50 }, { value: 75 }]}
             sx={{ width: '100%' }}
           />
