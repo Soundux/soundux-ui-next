@@ -28,6 +28,7 @@ function TabAppearance() {
   const theme = useMantineTheme();
   const [customCssData, setCustomCssData] = useState<TransferListData>(initialValues);
   const [opened, setOpened] = useState(false);
+  const [viewMode, setViewMode] = useState('list');
   const [useTransparency, setUseTransparency] = useState(false);
   const [transparency, setTransparency] = useState(50);
   const [selectedCustomColor, setSelectedCustomColor] = useState<string>('#ffff');
@@ -113,7 +114,7 @@ function TabAppearance() {
             </Popover>
           </Group>
         </InputWrapper>
-        <RadioGroup label="View Mode">
+        <RadioGroup value={viewMode} onChange={setViewMode} label="View Mode">
           <Radio value="list">List</Radio>
           <Radio value="grid">Grid</Radio>
           <Radio value="launchpad">Launchpad</Radio>

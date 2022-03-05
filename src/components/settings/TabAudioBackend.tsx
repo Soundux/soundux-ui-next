@@ -1,7 +1,10 @@
 import { AlertIcon, EyeIcon } from '@primer/octicons-react';
 import { Alert, Card, CSSObject, Divider, Radio, RadioGroup, Text } from '@mantine/core';
+import { useState } from 'react';
 
 function TabAudioBackend() {
+  const [selectedBackend, setSelectedBackend] = useState('new');
+
   const hideCheckbox: CSSObject = {
     pointerEvents: 'none',
     '& input': { display: 'none' },
@@ -21,7 +24,7 @@ function TabAudioBackend() {
       </Text>
       <Text size="sm">The technology to make use of to play sounds</Text>
       <Divider my="lg" variant="dotted" />
-      <RadioGroup variant="vertical" size="lg" required>
+      <RadioGroup value={selectedBackend} onChange={setSelectedBackend} variant="vertical" size="lg">
         <Radio value="new">New</Radio>
         <Radio value="x1" sx={hideCheckbox}>
           <Alert icon={<EyeIcon size={16} />} title="Advantages" color="green" radius="md" mb="xs">
