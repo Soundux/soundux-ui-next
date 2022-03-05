@@ -25,7 +25,7 @@ function StyledSlider(props: SliderProps) {
           '&:hover .mantine-Slider-thumb': {
             height: 12,
             width: 12,
-            backgroundColor: theme.white,
+            backgroundColor: theme.colorScheme === 'dark' ? theme.white : theme.black,
             boxShadow: theme.shadows.sm,
           },
 
