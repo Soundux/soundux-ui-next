@@ -8,7 +8,7 @@ function TabVBCable() {
       <Text mb="md" weight={500}>
         VB-Cable (Experimental)
       </Text>
-      <Text size="sm" sx={{ width: '645px' }}>
+      <Text size="sm">
         Our experimental VB-Cable settings, if you don&apos;t want to configure everything VB-Cable
         related manually, this tab is for you!
       </Text>

@@ -20,7 +20,11 @@ function Settings() {
         height: 'calc(100vh - 92px)',
       }}
     >
-      <StyledTabs active={activeTab} onTabChange={setActiveTab}>
+      <StyledTabs
+        active={activeTab}
+        onTabChange={setActiveTab}
+        sx={{ width: isWindows ? '742.625px' : '600.8125px' }}
+      >
         <Tabs.Tab label="Audio Backend" icon={<MegaphoneIcon />}>
           <TabAudioBackend />
         </Tabs.Tab>

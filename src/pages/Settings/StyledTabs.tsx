@@ -30,6 +30,10 @@ function StyledTabs(props: TabsProps) {
           },
         },
 
+        tabsList: {
+          flexWrap: 'nowrap',
+        },
+
         tabActive: {
           backgroundColor: theme.colors.accent2[7],
           borderColor: theme.colors.accent2[7],
