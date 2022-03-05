@@ -50,6 +50,7 @@ function ListView() {
                   textTransform: 'initial',
                   fontWeight: 'normal',
                   width: '70px',
+                  color: '#e9ecef',
                 }}
               >
                 {sound.fileType}
