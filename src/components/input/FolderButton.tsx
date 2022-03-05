@@ -1,7 +1,14 @@
 import React from 'react';
-import { createStyles, Group, Text, ThemeIcon, UnstyledButton } from '@mantine/core';
+import {
+  createStyles,
+  Group,
+  Text,
+  ThemeIcon,
+  UnstyledButton,
+  UnstyledButtonProps,
+} from '@mantine/core';
 
-interface MainLinkProps {
+interface MainLinkProps extends UnstyledButtonProps {
   icon: React.ReactNode;
   color: string;
   label: string;
@@ -31,11 +38,11 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-function FolderButton({ icon, color, label, selected, endIcon }: MainLinkProps) {
+function FolderButton({ icon, color, label, selected, endIcon, ...props }: MainLinkProps) {
   const { classes } = useStyles();
 
   return (
-    <UnstyledButton className={`${classes.button} ${selected ? 'selected' : ''}`}>
+    <UnstyledButton className={`${classes.button} ${selected ? 'selected' : ''}`} {...props}>
       <Group position="apart" align="center">
         <Group>
           <ThemeIcon color={color} variant="light">

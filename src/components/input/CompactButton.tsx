@@ -1,4 +1,11 @@
-import { Button, ButtonProps, createStyles } from '@mantine/core';
+import {
+  Button,
+  ButtonProps,
+  createStyles,
+  PolymorphicComponentProps,
+  SharedButtonProps,
+} from '@mantine/core';
+import { forwardRef, ReactElement, ReactNode } from 'react';
 
 const useStyles = createStyles(() => ({
   label: {
@@ -6,15 +13,22 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-// TODO: can we use something other than any?
-function CompactButton(props: ButtonProps<any>) {
+type CompactButtonComponent = (<C = 'button'>(
+  props: PolymorphicComponentProps<C, SharedButtonProps & { children: ReactNode }>
+) => ReactElement) & {
+  displayName?: string;
+};
+
+const CompactButton: CompactButtonComponent = forwardRef((props: ButtonProps<'button'>, ref: any) => {
   const { classes } = useStyles();
 
   return (
-    <Button compact variant="default" radius="md" classNames={classes} {...props}>
+    <Button compact variant="default" radius="md" ref={ref} classNames={classes} {...props}>
       {props.children}
     </Button>
   );
-}
+}) as any;
+
+CompactButton.displayName = 'CompactButton';
 
 export default CompactButton;
