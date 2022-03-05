@@ -3,8 +3,8 @@ import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import CompactButton from './CompactButton';
 
 function NavigationButton(props: ButtonProps<typeof Link>) {
-  let resolved = useResolvedPath(props.to);
-  let match = useMatch({ path: resolved.pathname, end: true });
+  const resolved = useResolvedPath(props.to);
+  const match = useMatch({ path: resolved.pathname, end: true });
 
   return (
     <CompactButton

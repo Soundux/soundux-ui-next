@@ -14,8 +14,8 @@ import Welcome from './pages/Welcome';
 // TODO: 300 as global variable (needed in navbar width and bottom bar width calculation)
 
 function App() {
-  let resolved = useResolvedPath('/');
-  let match = useMatch({ path: resolved.pathname, end: true });
+  const resolved = useResolvedPath('/');
+  const match = useMatch({ path: resolved.pathname, end: true });
 
   return (
     <MantineProvider

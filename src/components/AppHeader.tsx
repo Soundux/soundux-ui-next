@@ -29,10 +29,10 @@ const useStyles = createStyles(theme => ({
 
 function AppHeader() {
   const { classes } = useStyles();
-  let resolvedHome = useResolvedPath('/');
-  let matchedHome = useMatch({ path: resolvedHome.pathname, end: true });
-  let resolvedSettings = useResolvedPath('/settings');
-  let matchedSettings = useMatch({ path: resolvedSettings.pathname, end: true });
+  const resolvedHome = useResolvedPath('/');
+  const matchedHome = useMatch({ path: resolvedHome.pathname, end: true });
+  const resolvedSettings = useResolvedPath('/settings');
+  const matchedSettings = useMatch({ path: resolvedSettings.pathname, end: true });
 
   return (
     <Group
