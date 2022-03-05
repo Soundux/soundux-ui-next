@@ -30,10 +30,10 @@ function StyledSlider(props: SliderProps) {
           },
 
           '&:active .mantine-Slider-bar': {
-            backgroundColor: theme.colors.red[7],
+            backgroundColor: theme.colors.accent2[7],
           },
           '&:hover .mantine-Slider-bar': {
-            backgroundColor: theme.colors.red[7],
+            backgroundColor: theme.colors.accent2[7],
           },
         },
         thumb: {
