@@ -33,7 +33,7 @@ function App() {
       withGlobalStyles
     >
       <AppShell
-        padding="md"
+        fixed
         navbar={
           match ? (
             <Navbar width={{ base: 300 }} padding="xs">
