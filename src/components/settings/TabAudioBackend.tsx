@@ -27,16 +27,16 @@ function TabAudioBackend() {
       <RadioGroup value={selectedBackend} onChange={setSelectedBackend} variant="vertical" size="lg">
         <Radio value="new">New</Radio>
         <Radio value="x1" sx={hideCheckbox}>
-          <Alert icon={<EyeIcon size={16} />} title="Advantages" color="green" radius="md" mb="xs">
+          <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="xs">
             Supports video formats & network streaming
           </Alert>
-          <Alert icon={<AlertIcon size={16} />} title="Warning" color="yellow" radius="md">
+          <Alert icon={<AlertIcon />} title="Warning" color="yellow" radius="md">
             May be more resource intensive
           </Alert>
         </Radio>
         <Radio value="old">Old</Radio>
         <Radio value="x2" sx={hideCheckbox}>
-          <Alert icon={<EyeIcon size={16} />} title="Advantages" color="green" radius="md">
+          <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md">
             Less resource intensive
           </Alert>
         </Radio>
