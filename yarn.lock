@@ -513,6 +513,11 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
+"@radix-ui/react-icons@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-icons/-/react-icons-1.1.0.tgz#c060c48ea04ea9df15cfc2be801f84eea3015855"
+  integrity sha512-nhctV9YKN8G4HfkS3p03ml+osTBDMGKImaAJTm666hymtaWEgIPiqL7F53ivDqIO4A+20ERwUiiKJ8h3XK7uAg==
+
 "@radix-ui/react-presence@0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-presence/-/react-presence-0.1.2.tgz#9f11cce3df73cf65bc348e8b76d891f0d54c1fe3"

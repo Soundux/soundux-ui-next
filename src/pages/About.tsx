@@ -3,7 +3,7 @@ import GradientButton from '../components/input/GradientButton';
 import { HeartIcon, HomeIcon, InfoIcon, LawIcon } from '@primer/octicons-react';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from '../components/Logo';
+import Logo from '../assets/Logo';
 
 function About() {
   return (
