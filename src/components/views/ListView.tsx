@@ -1,4 +1,4 @@
-import { Avatar, Badge, Group, Paper, Text } from '@mantine/core';
+import { ActionIcon, Avatar, Badge, Group, Paper, Text } from '@mantine/core';
 import {
   HeartIcon,
   KebabHorizontalIcon,
@@ -81,11 +81,21 @@ function ListView() {
               Modified {sound.modified}
             </Badge>
             <Group>
-              <KebabHorizontalIcon />
-              <UnmuteIcon />
-              <PencilIcon />
-              <HeartIcon />
-              <XCircleFillIcon />
+              <ActionIcon variant="transparent" size="xs">
+                <KebabHorizontalIcon />
+              </ActionIcon>
+              <ActionIcon variant="transparent" size="xs">
+                <UnmuteIcon />
+              </ActionIcon>
+              <ActionIcon variant="transparent" size="xs">
+                <PencilIcon />
+              </ActionIcon>
+              <ActionIcon variant="transparent" size="xs">
+                <HeartIcon />
+              </ActionIcon>
+              <ActionIcon variant="transparent" size="xs">
+                <XCircleFillIcon />
+              </ActionIcon>
             </Group>
           </Group>
         </Paper>

@@ -1,4 +1,4 @@
-import { Group, Paper, Slider, SliderProps, Text } from '@mantine/core';
+import { ActionIcon, Group, Paper, Slider, SliderProps, Text } from '@mantine/core';
 import {
   HeartIcon,
   IterationsIcon,
@@ -63,13 +63,21 @@ function BottomBar() {
               <Text>Sound 1.mp3</Text>
               <Text>Sounds_1</Text>
             </Group>
-            <HeartIcon />
+            <ActionIcon variant="transparent">
+              <HeartIcon />
+            </ActionIcon>
           </Group>
           <Group direction="column" align="center">
             <Group>
-              <IterationsIcon />
-              <XCircleFillIcon size="medium" />
-              <SyncIcon />
+              <ActionIcon variant="transparent">
+                <IterationsIcon />
+              </ActionIcon>
+              <ActionIcon variant="transparent">
+                <XCircleFillIcon size="medium" />
+              </ActionIcon>
+              <ActionIcon variant="transparent">
+                <SyncIcon />
+              </ActionIcon>
             </Group>
             <Group noWrap>
               <Text>X:XX</Text>
@@ -78,7 +86,9 @@ function BottomBar() {
             </Group>
           </Group>
           <Group noWrap>
-            <MultiSelectIcon />
+            <ActionIcon variant="transparent" size="xs">
+              <MultiSelectIcon />
+            </ActionIcon>
             <Group direction="column">
               <Group noWrap>
                 <UnmuteIcon />
