@@ -10,6 +10,7 @@ import PassThrough from './pages/PassThrough';
 import About from './pages/About';
 import SoundEditor from './pages/SoundEditor';
 import Welcome from './pages/Welcome';
+import Tutorial from './pages/Tutorial';
 
 // TODO: 300 as global variable (needed in navbar width and bottom bar width calculation)
 
@@ -57,6 +58,7 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/tutorial" element={<Tutorial />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/virtualDevices" element={<VirtualDevices />} />
