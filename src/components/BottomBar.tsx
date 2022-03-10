@@ -8,37 +8,35 @@ import {
   UnmuteIcon,
   XCircleFillIcon,
 } from '@primer/octicons-react';
+import { useHover } from '@mantine/hooks';
 
 function StyledSlider(props: SliderProps) {
+  const { hovered, ref } = useHover();
+
   return (
     <Slider
       labelTransition="fade"
       size={5}
+      ref={ref}
       styles={theme => ({
         track: {
           backgroundColor: theme.colors.dark[3],
         },
         bar: {
-          backgroundColor: theme.colors.dark[2],
+          backgroundColor: hovered ? theme.colors.accent2[7] : theme.colors.dark[2],
         },
         root: {
-          '&:hover .mantine-Slider-thumb': {
-            height: 12,
-            width: 12,
-            backgroundColor: theme.colorScheme === 'dark' ? theme.white : theme.black,
-            boxShadow: theme.shadows.sm,
-          },
-
           '&:active .mantine-Slider-bar': {
-            backgroundColor: theme.colors.accent2[7],
-          },
-          '&:hover .mantine-Slider-bar': {
             backgroundColor: theme.colors.accent2[7],
           },
         },
         thumb: {
-          height: 0,
-          width: 0,
+          height: 12,
+          width: 12,
+          // transition: 'opacity 150ms ease',
+          opacity: hovered ? 1 : 0,
+          backgroundColor: theme.colorScheme === 'dark' ? theme.white : theme.colors.dark[4],
+          boxShadow: theme.shadows.sm,
           border: 0,
         },
       })}
