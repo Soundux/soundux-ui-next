@@ -1,4 +1,5 @@
 import { ActionIcon, Group, Paper, Slider, SliderProps, Text } from '@mantine/core';
+import { PauseIcon } from '@radix-ui/react-icons';
 import {
   HeartIcon,
   IterationsIcon,
@@ -6,7 +7,6 @@ import {
   MuteIcon,
   SyncIcon,
   UnmuteIcon,
-  XCircleFillIcon,
 } from '@primer/octicons-react';
 import { useHover } from '@mantine/hooks';
 
@@ -67,13 +67,13 @@ function BottomBar() {
           </Group>
           <Group direction="column" align="center">
             <Group>
-              <ActionIcon variant="transparent">
+              <ActionIcon variant="transparent" size="xs">
                 <IterationsIcon />
               </ActionIcon>
-              <ActionIcon variant="transparent">
-                <XCircleFillIcon size="medium" />
+              <ActionIcon variant="filled" radius="xl" color="accent2" size="lg">
+                <PauseIcon height={25} width={25} />
               </ActionIcon>
-              <ActionIcon variant="transparent">
+              <ActionIcon variant="transparent" size="xs">
                 <SyncIcon />
               </ActionIcon>
             </Group>
