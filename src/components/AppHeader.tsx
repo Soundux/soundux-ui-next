@@ -40,9 +40,8 @@ function AppHeader() {
         height: '100%',
         marginTop: 0,
         marginBottom: 0,
-        paddingLeft: 20,
-        paddingRight: 20,
       }}
+      px="lg"
       position="apart"
       align="center"
       noWrap

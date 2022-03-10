@@ -23,7 +23,7 @@ function SoundEditor() {
 
   return (
     <Center sx={{ height: 'calc(100vh - 92px)' }}>
-      <Card padding="lg" radius="lg" sx={{ height: '85%', width: '90%' }}>
+      <Card p="lg" radius="lg" sx={{ height: '85%', width: '90%' }}>
         <Group direction="column" spacing={0} align="stretch" noWrap sx={{ height: '100%' }}>
           <Text mb="md" weight={500}>
             Sound

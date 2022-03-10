@@ -53,7 +53,7 @@ function BottomBar() {
   return (
     <>
       <Paper
-        padding={15}
+        p={15}
         radius={0}
         sx={{ position: 'fixed', bottom: 0, width: 'calc(100vw - 300px)', marginLeft: '-16px' }}
       >

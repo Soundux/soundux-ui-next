@@ -39,7 +39,7 @@ function ListView() {
   return (
     <Group spacing={7} direction="column" sx={{ width: '100%' }}>
       {sounds.map(sound => (
-        <Paper padding="md" shadow="xs" key={sound.name} sx={{ width: '100%' }}>
+        <Paper p="md" shadow="xs" key={sound.name} sx={{ width: '100%' }}>
           <Group position="apart" noWrap>
             <Group>
               <Avatar src={`https://picsum.photos/200?name=${sound.name}`} />

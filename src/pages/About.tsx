@@ -8,7 +8,7 @@ import Logo from '../assets/Logo';
 function About() {
   return (
     <Center sx={{ height: 'calc(100vh - 92px)' }}>
-      <Card padding="xl" radius="lg" sx={{ maxWidth: '700px', position: 'relative' }}>
+      <Card p="xl" radius="lg" sx={{ maxWidth: '700px', position: 'relative' }}>
         <Logo style={{ position: 'absolute', left: -45, top: 0 }} />
         <Group noWrap>
           <Logo style={{ visibility: 'hidden' }} />

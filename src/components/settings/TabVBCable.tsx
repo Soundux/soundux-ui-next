@@ -12,7 +12,7 @@ function TabVBCable() {
   const [primaryMicrophone, setPrimaryMicrophone] = useState<string | null>('one');
 
   return (
-    <Card padding="lg" radius="lg">
+    <Card p="lg" radius="lg">
       <Text mb="md" weight={500}>
         VB-Cable (Experimental)
       </Text>

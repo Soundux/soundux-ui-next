@@ -56,7 +56,7 @@ function PassThrough() {
         height: 'calc(100vh - 92px)',
       }}
     >
-      <Card padding="lg" radius="lg" sx={{ height: '83%', width: '45%' }}>
+      <Card p="lg" radius="lg" sx={{ height: '83%', width: '45%' }}>
         <TransferList
           value={applications}
           onChange={setApplications}

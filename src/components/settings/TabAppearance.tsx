@@ -34,7 +34,7 @@ function TabAppearance() {
   const [selectedCustomColor, setSelectedCustomColor] = useState<string>('#ffff');
 
   return (
-    <Card padding="lg" radius="lg">
+    <Card p="lg" radius="lg">
       <Text mb="md" weight={500}>
         Appearance
       </Text>
@@ -80,7 +80,7 @@ function TabAppearance() {
               // transitionDuration={0}
               width={260}
               withArrow
-              // noClickOutside
+              // closeOnClickOutside={false}
               target={
                 <ColorSwatch
                   color={selectedCustomColor}
@@ -115,9 +115,9 @@ function TabAppearance() {
           </Group>
         </InputWrapper>
         <RadioGroup value={viewMode} onChange={setViewMode} label="View Mode">
-          <Radio value="list">List</Radio>
-          <Radio value="grid">Grid</Radio>
-          <Radio value="launchpad">Launchpad</Radio>
+          <Radio value="list" label="List" />
+          <Radio value="grid" label="Grid" />
+          <Radio value="launchpad" label="Launchpad" />
         </RadioGroup>
         <TransferList
           value={customCssData}

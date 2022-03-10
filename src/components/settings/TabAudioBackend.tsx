@@ -18,28 +18,38 @@ function TabAudioBackend() {
   };
 
   return (
-    <Card padding="lg" radius="lg">
+    <Card p="lg" radius="lg">
       <Text mb="md" weight={500}>
         Audio Backend
       </Text>
       <Text size="sm">The technology to make use of to play sounds</Text>
       <Divider my="lg" variant="dotted" />
-      <RadioGroup value={selectedBackend} onChange={setSelectedBackend} variant="vertical" size="lg">
-        <Radio value="new">New</Radio>
-        <Radio value="x1" sx={hideCheckbox}>
-          <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="xs">
-            Supports video formats & network streaming
-          </Alert>
-          <Alert icon={<AlertIcon />} title="Warning" color="yellow" radius="md">
-            May be more resource intensive
-          </Alert>
-        </Radio>
-        <Radio value="old">Old</Radio>
-        <Radio value="x2" sx={hideCheckbox}>
-          <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md">
-            Less resource intensive
-          </Alert>
-        </Radio>
+      <RadioGroup value={selectedBackend} onChange={setSelectedBackend} orientation="vertical" size="lg">
+        <Radio value="new" label="New" />
+        <Radio
+          value="x1"
+          sx={hideCheckbox}
+          label={
+            <>
+              <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="xs">
+                Supports video formats & network streaming
+              </Alert>
+              <Alert icon={<AlertIcon />} title="Warning" color="yellow" radius="md">
+                May be more resource intensive
+              </Alert>
+            </>
+          }
+        />
+        <Radio value="old" label="Old" />
+        <Radio
+          value="x2"
+          sx={hideCheckbox}
+          label={
+            <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md">
+              Less resource intensive
+            </Alert>
+          }
+        />
       </RadioGroup>
     </Card>
   );

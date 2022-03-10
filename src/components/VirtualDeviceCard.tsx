@@ -22,7 +22,7 @@ function VirtualDeviceCard({ virtualDevice, availableMicrophones, onDelete }: Vi
   const [connectedTo, setConnectedTo] = useState(virtualDevice.connectedTo);
 
   return (
-    <Card padding="lg" radius="lg" sx={{ height: '77.5%', width: '290px' }}>
+    <Card p="lg" radius="lg" sx={{ height: '77.5%', width: '290px' }}>
       <Group direction="column" position="center" noWrap sx={{ height: '100%' }}>
         <TextInput size="lg" value={name} onChange={event => setName(event.currentTarget.value)} />
         <InputWrapper label="Volume" sx={{ width: '100%' }}>

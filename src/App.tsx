@@ -37,7 +37,7 @@ function App() {
         fixed
         navbar={
           match ? (
-            <Navbar width={{ base: 300 }} padding="xs">
+            <Navbar width={{ base: 300 }} p="xs">
               <AppNavbar />
             </Navbar>
           ) : undefined

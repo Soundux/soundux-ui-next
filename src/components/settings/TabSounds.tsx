@@ -14,7 +14,7 @@ function TabSounds() {
   const [volumeNormalization, setVolumeNormalization] = useState(true);
 
   return (
-    <Card padding="lg" radius="lg">
+    <Card p="lg" radius="lg">
       <Text mb="md" weight={500}>
         Sounds
       </Text>
