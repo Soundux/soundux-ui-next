@@ -59,8 +59,6 @@ const styles = createStyles((theme, { ITEM_PADDING }: CheckboxListStyles) => ({
     borderTopWidth: 0,
     borderRightWidth: 0,
     borderLeftWidth: 0,
-    borderTopLeftRadius: theme.radius.sm - 1,
-    borderTopRightRadius: theme.radius.sm - 1,
     display: 'block',
     borderBottomColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4],
   },
