@@ -412,40 +412,40 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/core@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-4.0.2.tgz#499ff56883b2360c646815d47d0d441638c01e48"
-  integrity sha512-Q1pMaRUlcmoZCZpjNVtxih96iIqjjCzUhBg3EN++cdal6WDhtt+XmHPjiP4PR8Oh41kLK0eO1GEyE0wUI5Slhg==
+"@mantine/core@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-4.0.4.tgz#407274b33cd33198d25071f907cdfcc167de5109"
+  integrity sha512-ktMXI0fI3tTE4ULyNLq0xVWm+okHTmsxXbwQU9zOcxQo9FsSA+tt7FKbzq2gTxuwezflEbjIHm81Mq6DmkAo9g==
   dependencies:
-    "@mantine/styles" "4.0.2"
+    "@mantine/styles" "4.0.4"
     "@popperjs/core" "^2.9.3"
     "@radix-ui/react-scroll-area" "^0.1.1"
     clsx "^1.1.1"
     react-popper "^2.2.5"
     react-textarea-autosize "^8.3.2"
 
-"@mantine/hooks@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-4.0.2.tgz#a97a9a4f01b89e11c2dd9010cb303cf9fda4aab8"
-  integrity sha512-uyhJGD8ajlhJw/7TitFoy3qrdK1EhCY8rVVfAE0CBhWBTPubAnJJm3Ua74bMZk3oYtStbSwCI5hDkaPEpfOMug==
+"@mantine/hooks@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-4.0.4.tgz#6c70c6e01fad8c94d700df2f0942713184c63b09"
+  integrity sha512-gSbdoKDxxNVQpssTL25n7VUK/U6PQdWOilP041ygZ7k2sPt6PD4FzLLwbKtB0Be6MUiyvW3zAOKh3y2/NjZ40w==
 
-"@mantine/modals@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-4.0.2.tgz#52a750afa62726dccf1a4d356c82102ff231de7a"
-  integrity sha512-uSXMNgDPY6hiIhT+SohSOtxWnGtLYKpxLcxN1iIHFs1yU4NXvhfGMLpM7YKRIl0qCfFEf0sRZTOTqE6MX/rJMg==
+"@mantine/modals@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-4.0.4.tgz#cdf5b2d7b326f8e500ba303636aa75bf34c2bf4e"
+  integrity sha512-/jwXa3AKj/Jz5AykdfvS3vqHvUR83H3UgTh4XiByXcTLA9UcjxYXcs1/zhpuwWMYjtfgJn3VrrP6ax2F6Kyhbg==
 
-"@mantine/notifications@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-4.0.2.tgz#b7fcbbde9826942f529171a691e1922c199cde92"
-  integrity sha512-06xfOD5irZ+426VnxeMIc50KT4vmGbJI0iKWARCyLPuY5hrKhhzOpxfth5vAyZfhy4buoW/uIpRWVCM89eH6RQ==
+"@mantine/notifications@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-4.0.4.tgz#6e9644ac1556d38ffebed73728b2afa862a2dc5f"
+  integrity sha512-B9gC0bHFbUcUZLB/Muv6vLVAocN44o7zXvqGmu5epVIBQ036Up+jqqqoxm7vmD8REqM/sJ4Q4zfPjeDIFBpX0g==
   dependencies:
     clsx "^1.1.1"
     react-transition-group "^4.4.2"
 
-"@mantine/styles@4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-4.0.2.tgz#ff99910f476e18eaabc73623fc97c18b60ead524"
-  integrity sha512-r0Ti9UTJB7OKxzOinAFcsub7J7v7F9zaUDYNgCfs+t/vU/8S5S3C7K9ohRUYBoNIvm+MJYsn+zs6jWy0ku3i4A==
+"@mantine/styles@4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-4.0.4.tgz#dcac61bcfd73d39127212a028a77de018a89ba96"
+  integrity sha512-tQny97sUkoGJQ/fPKEXPR4114qoKm6isMmNtA+0/KtLFvlzFK4orNxV1n0yiW702uiZEegiHjpInheLCWOAedg==
   dependencies:
     "@emotion/cache" "^11.7.1"
     "@emotion/react" "^11.7.1"
