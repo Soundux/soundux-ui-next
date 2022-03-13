@@ -37,7 +37,7 @@ function AppNavbar() {
   };
 
   return (
-    <>
+    <Navbar width={{ base: 300 }} p="xs">
       <Navbar.Section grow mr={-10} sx={{ paddingRight: 10, paddingBottom: 10 }} component={ScrollArea}>
         {folders.map(folder => (
           <FolderButton
@@ -81,7 +81,7 @@ function AppNavbar() {
           endIcon={<ChevronRightIcon />}
         />
       </Navbar.Section>
-    </>
+    </Navbar>
   );
 }
 

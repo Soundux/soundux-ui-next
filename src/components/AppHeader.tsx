@@ -1,4 +1,4 @@
-import { ActionIcon, createStyles, Group, Text } from '@mantine/core';
+import { ActionIcon, createStyles, Group, Header, Text } from '@mantine/core';
 import {
   ChevronRightIcon,
   CommentIcon,
@@ -35,76 +35,78 @@ function AppHeader() {
   const matchedSettings = useMatch({ path: resolvedSettings.pathname, end: true });
 
   return (
-    <Group
-      style={{
-        height: '100%',
-        marginTop: 0,
-        marginBottom: 0,
-      }}
-      px="lg"
-      position="apart"
-      align="center"
-      noWrap
-    >
-      <Group>
-        <Link to="/">
-          <ActionIcon
-            variant="default"
-            className={`${classes.icon} ${matchedHome ? 'active' : ''}`}
-            radius="xl"
-            size="xl"
-          >
-            <HomeIcon />
-          </ActionIcon>
-        </Link>
-        <ChevronRightIcon />
-        <NavigationButton to="/settings" leftIcon={<GearIcon />}>
-          Settings
-        </NavigationButton>
-        <NavigationButton to="/virtualDevices" leftIcon={<GitPullRequestIcon />}>
-          Virtual Devices
-        </NavigationButton>
-        <NavigationButton to="/passThrough" leftIcon={<WebhookIcon />}>
-          Pass-through
-        </NavigationButton>
-        <NavigationButton to="/soundEditor" leftIcon={<PencilIcon />}>
-          Sound Editor
-        </NavigationButton>
-        <NavigationButton to="/about" leftIcon={<CommentIcon />}>
-          About
-        </NavigationButton>
-      </Group>
-      <Group>
-        {matchedHome && (
-          <>
-            <CompactButton
-              leftIcon={<SearchIcon />}
-              sx={{
-                backgroundImage:
-                  'linear-gradient(180deg, rgba(125, 123, 238, 0.5) 0%, rgba(89, 111, 252, 0.5) 100%)',
-              }}
+    <Header height={60}>
+      <Group
+        style={{
+          height: '100%',
+          marginTop: 0,
+          marginBottom: 0,
+        }}
+        px="lg"
+        position="apart"
+        align="center"
+        noWrap
+      >
+        <Group>
+          <Link to="/">
+            <ActionIcon
+              variant="default"
+              className={`${classes.icon} ${matchedHome ? 'active' : ''}`}
+              radius="xl"
+              size="xl"
             >
-              Search
-            </CompactButton>
-            <CompactButton
-              leftIcon={<PlusIcon />}
-              sx={{
-                backgroundImage:
-                  'linear-gradient(180deg, rgba(125, 123, 238, 0.5) 0%, rgba(89, 111, 252, 0.5) 100%)',
-              }}
-            >
-              Add
-            </CompactButton>
-          </>
-        )}
-        {matchedSettings && (
-          <Group spacing="xs">
-            <InfoIcon />
-            <Text color="gray">Settings changes are saved automatically</Text>
-          </Group>
-        )}
+              <HomeIcon />
+            </ActionIcon>
+          </Link>
+          <ChevronRightIcon />
+          <NavigationButton to="/settings" leftIcon={<GearIcon />}>
+            Settings
+          </NavigationButton>
+          <NavigationButton to="/virtualDevices" leftIcon={<GitPullRequestIcon />}>
+            Virtual Devices
+          </NavigationButton>
+          <NavigationButton to="/passThrough" leftIcon={<WebhookIcon />}>
+            Pass-through
+          </NavigationButton>
+          <NavigationButton to="/soundEditor" leftIcon={<PencilIcon />}>
+            Sound Editor
+          </NavigationButton>
+          <NavigationButton to="/about" leftIcon={<CommentIcon />}>
+            About
+          </NavigationButton>
+        </Group>
+        <Group>
+          {matchedHome && (
+            <>
+              <CompactButton
+                leftIcon={<SearchIcon />}
+                sx={{
+                  backgroundImage:
+                    'linear-gradient(180deg, rgba(125, 123, 238, 0.5) 0%, rgba(89, 111, 252, 0.5) 100%)',
+                }}
+              >
+                Search
+              </CompactButton>
+              <CompactButton
+                leftIcon={<PlusIcon />}
+                sx={{
+                  backgroundImage:
+                    'linear-gradient(180deg, rgba(125, 123, 238, 0.5) 0%, rgba(89, 111, 252, 0.5) 100%)',
+                }}
+              >
+                Add
+              </CompactButton>
+            </>
+          )}
+          {matchedSettings && (
+            <Group spacing="xs">
+              <InfoIcon />
+              <Text color="gray">Settings changes are saved automatically</Text>
+            </Group>
+          )}
+        </Group>
       </Group>
-    </Group>
+    </Header>
   );
 }
 

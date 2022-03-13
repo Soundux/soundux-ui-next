@@ -1,4 +1,4 @@
-import { AppShell, Header, MantineProvider, Navbar } from '@mantine/core';
+import { AppShell, MantineProvider } from '@mantine/core';
 import { Tuple } from '@mantine/styles/lib/theme/types/Tuple';
 import { Routes, Route, useResolvedPath, useMatch } from 'react-router-dom';
 import AppNavbar from './components/AppNavbar';
@@ -34,19 +34,8 @@ function App() {
       withGlobalStyles
     >
       <AppShell
-        fixed
-        navbar={
-          match ? (
-            <Navbar width={{ base: 300 }} p="xs">
-              <AppNavbar />
-            </Navbar>
-          ) : undefined
-        }
-        header={
-          <Header height={60}>
-            <AppHeader />
-          </Header>
-        }
+        navbar={match ? <AppNavbar /> : undefined}
+        header={<AppHeader />}
         styles={theme => ({
           main: {
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
