@@ -6,13 +6,7 @@ import {
   UnmuteIcon,
   XCircleFillIcon,
 } from '@primer/octicons-react';
-
-interface Sound {
-  name: string;
-  fileType: string;
-  length: string;
-  modified: string;
-}
+import { Sound } from '../../types';
 
 const sounds: Sound[] = [
   {

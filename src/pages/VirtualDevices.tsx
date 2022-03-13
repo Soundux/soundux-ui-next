@@ -1,7 +1,7 @@
 import { Group, UnstyledButton } from '@mantine/core';
 import { useState } from 'react';
 import AddDeviceIcon from '../assets/AddDeviceIcon';
-import { VirtualDevice } from '../components/VirtualDeviceCard';
+import { VirtualDevice } from '../types';
 import VirtualDeviceCard from '../components/VirtualDeviceCard';
 import { CheckboxListItem } from '../components/input/CheckboxList';
 
