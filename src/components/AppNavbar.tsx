@@ -1,4 +1,4 @@
-import { ActionIcon, Divider, MantineColor, Navbar, ScrollArea } from '@mantine/core';
+import { ActionIcon, Divider, Navbar, ScrollArea } from '@mantine/core';
 import FolderButton from './input/FolderButton';
 import {
   ChevronRightIcon,
@@ -8,12 +8,7 @@ import {
   XIcon,
 } from '@primer/octicons-react';
 import { useMemo, useState } from 'react';
-
-interface Folder {
-  id: number;
-  name: string;
-  color: MantineColor;
-}
+import { Folder } from '../types';
 
 function AppNavbar() {
   const [selectedFolder, setSelectedFolder] = useState(1);
