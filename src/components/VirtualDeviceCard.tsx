@@ -3,15 +3,9 @@ import CheckboxList, { CheckboxListItem } from './input/CheckboxList';
 import { XIcon } from '@primer/octicons-react';
 import { useState } from 'react';
 import { useInputState } from '@mantine/hooks';
+import { VirtualDevice } from '../types';
 
-export interface VirtualDevice {
-  id: number;
-  name: string;
-  volume: number;
-  connectedTo: CheckboxListItem[];
-}
-
-export interface VirtualDeviceCardProps {
+interface VirtualDeviceCardProps {
   virtualDevice: VirtualDevice;
   availableMicrophones: CheckboxListItem[];
   onDelete: (virtualDevice: VirtualDevice) => void;
