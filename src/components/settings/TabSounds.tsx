@@ -1,5 +1,6 @@
 import { Card, Divider, Group, MultiSelect, SelectItem, Switch, Text } from '@mantine/core';
 import { useState } from 'react';
+import { useInputState } from '@mantine/hooks';
 
 const playbackDevices: SelectItem[] = [
   { value: 'default', label: 'Default' },
@@ -9,9 +10,9 @@ const playbackDevices: SelectItem[] = [
 function TabSounds() {
   const [localPlaybackDevice, setLocalPlaybackDevice] = useState<string[]>(['default', 'other']);
   const [remotePlaybackDevice, setRemotePlaybackDevice] = useState<string[]>(['default', 'other']);
-  const [allowSoundOverlapping, setAllowSoundOverlapping] = useState(true);
-  const [muteDuringPlayback, setMuteDuringPlayback] = useState(true);
-  const [volumeNormalization, setVolumeNormalization] = useState(true);
+  const [allowSoundOverlapping, setAllowSoundOverlapping] = useInputState(true);
+  const [muteDuringPlayback, setMuteDuringPlayback] = useInputState(true);
+  const [volumeNormalization, setVolumeNormalization] = useInputState(true);
 
   return (
     <Card p="lg" radius="lg">
@@ -37,19 +38,19 @@ function TabSounds() {
         />
         <Switch
           checked={allowSoundOverlapping}
-          onChange={event => setAllowSoundOverlapping(event.currentTarget.checked)}
+          onChange={setAllowSoundOverlapping}
           label="Allow sound overlapping"
           size="md"
         />
         <Switch
           checked={muteDuringPlayback}
-          onChange={event => setMuteDuringPlayback(event.currentTarget.checked)}
+          onChange={setMuteDuringPlayback}
           label="Mute during playback"
           size="md"
         />
         <Switch
           checked={volumeNormalization}
-          onChange={event => setVolumeNormalization(event.currentTarget.checked)}
+          onChange={setVolumeNormalization}
           label="Volume normalization (Experimental)"
           size="md"
         />

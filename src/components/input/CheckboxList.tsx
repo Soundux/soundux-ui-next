@@ -9,7 +9,7 @@ import {
 } from '@mantine/core';
 import useStyles, { CheckboxListStylesNames } from './CheckboxList.styles';
 import React, { CSSProperties, useRef, useState } from 'react';
-import { useScrollIntoView } from '@mantine/hooks';
+import { useInputState, useScrollIntoView } from '@mantine/hooks';
 
 export type CheckboxListItem = Omit<TransferListItem, 'group'>;
 
@@ -51,7 +51,7 @@ function CheckboxList({
     { name: 'CheckboxList', classNames, styles }
   );
   const items: React.ReactElement[] = [];
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useInputState('');
   const [hovered, setHovered] = useState(-1);
   const filteredData = data.filter(item => filter(query, item)).slice(0, limit);
 
@@ -154,7 +154,7 @@ function CheckboxList({
           <TextInput
             value={query}
             onChange={event => {
-              setQuery(event.currentTarget.value);
+              setQuery(event);
               setHovered(0);
             }}
             onFocus={() => setHovered(0)}

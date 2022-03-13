@@ -18,6 +18,7 @@ import {
 } from '@mantine/core';
 import GradientButton from '../input/GradientButton';
 import { useState } from 'react';
+import { useInputState } from '@mantine/hooks';
 
 const initialValues: TransferListData = [
   [{ value: 'example', label: 'Example.css' }],
@@ -29,7 +30,7 @@ function TabAppearance() {
   const [customCssData, setCustomCssData] = useState<TransferListData>(initialValues);
   const [opened, setOpened] = useState(false);
   const [viewMode, setViewMode] = useState('list');
-  const [useTransparency, setUseTransparency] = useState(false);
+  const [useTransparency, setUseTransparency] = useInputState(false);
   const [transparency, setTransparency] = useState(50);
   const [selectedCustomColor, setSelectedCustomColor] = useState<string>('#ffff');
 
@@ -43,7 +44,7 @@ function TabAppearance() {
       <Group direction="column">
         <Switch
           checked={useTransparency}
-          onChange={event => setUseTransparency(event.currentTarget.checked)}
+          onChange={setUseTransparency}
           label="Enable transparency"
           size="md"
         />

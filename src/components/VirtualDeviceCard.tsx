@@ -2,6 +2,7 @@ import { Card, Group, InputWrapper, Slider, TextInput, ThemeIcon, UnstyledButton
 import CheckboxList, { CheckboxListItem } from './input/CheckboxList';
 import { XIcon } from '@primer/octicons-react';
 import { useState } from 'react';
+import { useInputState } from '@mantine/hooks';
 
 export interface VirtualDevice {
   id: number;
@@ -17,14 +18,14 @@ export interface VirtualDeviceCardProps {
 }
 
 function VirtualDeviceCard({ virtualDevice, availableMicrophones, onDelete }: VirtualDeviceCardProps) {
-  const [name, setName] = useState(virtualDevice.name);
+  const [name, setName] = useInputState(virtualDevice.name);
   const [volume, setVolume] = useState(virtualDevice.volume);
   const [connectedTo, setConnectedTo] = useState(virtualDevice.connectedTo);
 
   return (
     <Card p="lg" radius="lg" sx={{ height: '77.5%', width: '290px' }}>
       <Group direction="column" position="center" noWrap sx={{ height: '100%' }}>
-        <TextInput size="lg" value={name} onChange={event => setName(event.currentTarget.value)} />
+        <TextInput size="lg" value={name} onChange={setName} />
         <InputWrapper label="Volume" sx={{ width: '100%' }}>
           <Slider label={value => `${value}%`} value={volume} onChange={setVolume} />
         </InputWrapper>
