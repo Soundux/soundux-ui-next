@@ -1,7 +1,7 @@
 import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine/core';
 import { useInputState } from '@mantine/hooks';
 
-const langauges: SelectItem[] = [
+const languages: SelectItem[] = [
   { value: 'en', label: 'English' },
   { value: 'de', label: 'German' },
 ];
@@ -50,7 +50,7 @@ function TabOther() {
           label="Enable advanced mode"
           size="md"
         />
-        <Select label="Language override" placeholder="Pick one" clearable data={langauges} />
+        <Select label="Language override" placeholder="Pick one" clearable data={languages} />
       </Group>
     </Card>
   );
