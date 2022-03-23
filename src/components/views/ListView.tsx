@@ -7,6 +7,8 @@ import {
   XCircleFillIcon,
 } from '@primer/octicons-react';
 import { Sound } from '../../types';
+import { useModals } from '@mantine/modals';
+import { openSoundDeleteModal } from '../../modals';
 
 const sounds: Sound[] = [
   {
@@ -30,6 +32,14 @@ const sounds: Sound[] = [
 ];
 
 function ListView() {
+  const modals = useModals();
+
+  const removeSound = (sound: Sound) => {
+    openSoundDeleteModal(modals, sound, () => {
+      console.log('Delete sound', sound);
+    });
+  };
+
   return (
     <Group spacing={7} direction="column" sx={{ width: '100%' }}>
       {sounds.map(sound => (
@@ -87,7 +97,7 @@ function ListView() {
               <ActionIcon variant="transparent" size="xs">
                 <HeartIcon />
               </ActionIcon>
-              <ActionIcon variant="transparent" size="xs">
+              <ActionIcon variant="transparent" size="xs" onClick={() => removeSound(sound)}>
                 <XCircleFillIcon />
               </ActionIcon>
             </Group>
