@@ -14,6 +14,7 @@ import {
 import NavigationButton from './input/NavigationButton';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import CompactButton from './input/CompactButton';
+import OutputSelection from './input/OutputSelection';
 
 const useStyles = createStyles(theme => ({
   icon: {
@@ -96,6 +97,7 @@ function AppHeader() {
               >
                 Add
               </CompactButton>
+              <OutputSelection />
             </>
           )}
           {matchedSettings && (
