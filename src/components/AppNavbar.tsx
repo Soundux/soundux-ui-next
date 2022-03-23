@@ -9,8 +9,12 @@ import {
 } from '@primer/octicons-react';
 import { useMemo, useState } from 'react';
 import { Folder } from '../types';
+import { openFolderRemoveModal } from '../modals';
+import { useModals } from '@mantine/modals';
 
 function AppNavbar() {
+  const modals = useModals();
+
   const [selectedFolder, setSelectedFolder] = useState(1);
   const [folders, setFolders] = useState<Folder[]>([]);
 
@@ -25,10 +29,12 @@ function AppNavbar() {
   }, []);
 
   const removeFolder = (folder: Folder) => {
-    setFolders(folders.filter(({ id }) => id !== folder.id));
-    if (folders.length) {
-      setSelectedFolder(folders[0].id);
-    }
+    openFolderRemoveModal(modals, folder, () => {
+      setFolders(folders.filter(({ id }) => id !== folder.id));
+      if (folders.length) {
+        setSelectedFolder(folders[0].id);
+      }
+    });
   };
 
   return (

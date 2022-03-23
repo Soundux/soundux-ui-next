@@ -1,4 +1,5 @@
 import { AppShell, MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
 import { Tuple } from '@mantine/styles/lib/theme/types/Tuple';
 import { Routes, Route, useResolvedPath, useMatch } from 'react-router-dom';
 import AppNavbar from './components/AppNavbar';
@@ -34,31 +35,34 @@ function App() {
       withNormalizeCSS
       withGlobalStyles
     >
-      <AppShell
-        navbar={match ? <AppNavbar /> : undefined}
-        header={<AppHeader />}
-        fixed
-        styles={theme => ({
-          main: {
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-          },
-        })}
-        sx={{
-          height: '100vh',
-        }}
-      >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tutorial" element={<Tutorial />} />
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/virtualDevices" element={<VirtualDevices />} />
-          <Route path="/passThrough" element={<PassThrough />} />
-          <Route path="/soundEditor" element={<SoundEditor />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFoundTitle />} />
-        </Routes>
-      </AppShell>
+      <ModalsProvider>
+        <AppShell
+          navbar={match ? <AppNavbar /> : undefined}
+          header={<AppHeader />}
+          fixed
+          styles={theme => ({
+            main: {
+              backgroundColor:
+                theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+            },
+          })}
+          sx={{
+            height: '100vh',
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tutorial" element={<Tutorial />} />
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/virtualDevices" element={<VirtualDevices />} />
+            <Route path="/passThrough" element={<PassThrough />} />
+            <Route path="/soundEditor" element={<SoundEditor />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFoundTitle />} />
+          </Routes>
+        </AppShell>
+      </ModalsProvider>
     </MantineProvider>
   );
 }
