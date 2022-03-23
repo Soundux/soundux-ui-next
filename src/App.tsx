@@ -11,6 +11,7 @@ import About from './pages/About';
 import SoundEditor from './pages/SoundEditor';
 import Welcome from './pages/Welcome';
 import Tutorial from './pages/Tutorial';
+import NotFoundTitle from './components/NotFoundTitle';
 
 // TODO: 300 as global variable (needed in navbar width and bottom bar width calculation)
 
@@ -54,6 +55,7 @@ function App() {
           <Route path="/passThrough" element={<PassThrough />} />
           <Route path="/soundEditor" element={<SoundEditor />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFoundTitle />} />
         </Routes>
       </AppShell>
     </MantineProvider>
