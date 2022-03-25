@@ -349,10 +349,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/open-sans@^4.5.6":
-  version "4.5.6"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.6.tgz#20438c6b0b7772c371f784b4ede5c23a7605f1f3"
-  integrity sha512-bQuNS0H1VL1VLC6FwmReHlpJaICVe/seODU3Q9cpTQbJ5OtRD4TwWMrAjfTxqcFNollA6O0AlE4BnRSWMQLfvw==
+"@fontsource/open-sans@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.8.tgz#31f727353e89ce886e1076bd58536834e0778fda"
+  integrity sha512-3b94XDdRLqL7OlE7OjWg/4pgG825Juw8PLVEDm6h5pio0gMU89ICxfatGxHsBxMGfqad+wnvdmUweZWlELDFpQ==
 
 "@fortawesome/fontawesome-common-types@6.1.1":
   version "6.1.1"
