@@ -1,4 +1,5 @@
-import { AppShell, MantineProvider } from '@mantine/core';
+import { AppShell, LoadingOverlay, MantineProvider } from '@mantine/core';
+import { Suspense } from 'react';
 import { ModalsProvider } from '@mantine/modals';
 import { Tuple } from '@mantine/styles/lib/theme/types/Tuple';
 import { Routes, Route, useResolvedPath, useMatch } from 'react-router-dom';
@@ -50,17 +51,19 @@ function App() {
             height: '100vh',
           }}
         >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/tutorial" element={<Tutorial />} />
-            <Route path="/welcome" element={<Welcome />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/virtualDevices" element={<VirtualDevices />} />
-            <Route path="/passThrough" element={<PassThrough />} />
-            <Route path="/soundEditor" element={<SoundEditor />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<NotFoundTitle />} />
-          </Routes>
+          <Suspense fallback={<LoadingOverlay visible />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/tutorial" element={<Tutorial />} />
+              <Route path="/welcome" element={<Welcome />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/virtualDevices" element={<VirtualDevices />} />
+              <Route path="/passThrough" element={<PassThrough />} />
+              <Route path="/soundEditor" element={<SoundEditor />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<NotFoundTitle />} />
+            </Routes>
+          </Suspense>
         </AppShell>
       </ModalsProvider>
     </MantineProvider>
