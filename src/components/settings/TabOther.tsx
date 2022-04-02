@@ -2,6 +2,7 @@ import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine
 import { useInputState } from '@mantine/hooks';
 
 const languages: SelectItem[] = [
+  { value: 'auto', label: 'Auto-detect (English)' },
   { value: 'en', label: 'English' },
   { value: 'de', label: 'German' },
 ];
@@ -14,6 +15,7 @@ function TabOther() {
   const [topmost, setTopmost] = useInputState(true);
   const [autostart, setAutostart] = useInputState(true);
   const [advancedMode, setAdvancedMode] = useInputState(true);
+  const [language, setLanguage] = useInputState('auto');
 
   return (
     <Card p="lg" radius="lg">
@@ -50,7 +52,13 @@ function TabOther() {
           label="Enable advanced mode"
           size="md"
         />
-        <Select label="Language override" placeholder="Pick one" clearable data={languages} />
+        <Select
+          label="Language"
+          placeholder="Pick one"
+          data={languages}
+          value={language}
+          onChange={setLanguage}
+        />
       </Group>
     </Card>
   );
