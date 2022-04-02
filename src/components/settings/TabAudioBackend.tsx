@@ -11,9 +11,11 @@ function TabAudioBackend() {
     width: '100%',
     '& .mantine-RadioGroup-label': {
       width: '100%',
+      margin: 0,
     },
-    '& .mantine-RadioGroup-label span': {
+    '& .mantine-RadioGroup-label > div': {
       width: '100%',
+      margin: 0,
     },
   };
 
@@ -30,19 +32,23 @@ function TabAudioBackend() {
           value="x1"
           sx={hideCheckbox}
           label={
-            <>
-              <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="xs">
-                Supports video formats & network streaming
-              </Alert>
-              <Alert icon={<AlertIcon />} title="Warning" color="yellow" radius="md">
-                May be more resource intensive
-              </Alert>
-            </>
+            <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="xs">
+              Supports video formats & network streaming
+            </Alert>
+          }
+        />
+        <Radio
+          value="x2"
+          sx={hideCheckbox}
+          label={
+            <Alert icon={<AlertIcon />} title="Warning" color="yellow" radius="md">
+              May be more resource intensive
+            </Alert>
           }
         />
         <Radio value="old" label="Old" />
         <Radio
-          value="x2"
+          value="x3"
           sx={hideCheckbox}
           label={
             <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md">
