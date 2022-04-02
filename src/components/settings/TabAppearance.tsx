@@ -48,15 +48,14 @@ function TabAppearance() {
           label="Enable transparency"
           size="md"
         />
-        {useTransparency && (
-          <Slider
-            value={transparency}
-            onChange={setTransparency}
-            label={value => `${value}%`}
-            marks={[{ value: 25 }, { value: 50 }, { value: 75 }]}
-            sx={{ width: '100%' }}
-          />
-        )}
+        <Slider
+          value={transparency}
+          onChange={setTransparency}
+          label={value => `${value}%`}
+          marks={[{ value: 25 }, { value: 50 }, { value: 75 }]}
+          sx={{ width: '100%' }}
+          disabled={!useTransparency}
+        />
         <InputWrapper label="Accent Color" size="md">
           <Group spacing="xs">
             <ColorSwatch color={theme.colors.accent[7]}>
