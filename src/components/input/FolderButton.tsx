@@ -8,7 +8,7 @@ import {
   UnstyledButtonProps,
 } from '@mantine/core';
 
-interface MainLinkProps extends UnstyledButtonProps {
+interface MainLinkProps extends UnstyledButtonProps<'button'> {
   icon: React.ReactNode;
   color: string;
   label: string;
