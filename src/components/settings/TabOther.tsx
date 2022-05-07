@@ -1,4 +1,6 @@
 import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine/core';
+import { useStore } from '../../store';
+import shallow from 'zustand/shallow';
 import { useInputState } from '@mantine/hooks';
 
 const languages: SelectItem[] = [
@@ -8,13 +10,40 @@ const languages: SelectItem[] = [
 ];
 
 function TabOther() {
-  const [deleteToTrash, setDeleteToTrash] = useInputState(true);
-  const [minimizeToTray, setMinimizeToTray] = useInputState(true);
-  const [hotkeysOnlyCurrentTab, setHotkeysOnlyCurrentTab] = useInputState(true);
-  const [disableAnalytics, setDisableAnalytics] = useInputState(true);
-  const [topmost, setTopmost] = useInputState(true);
-  const [autostart, setAutostart] = useInputState(true);
-  const [advancedMode, setAdvancedMode] = useInputState(true);
+  const [
+    deleteToTrash,
+    setDeleteToTrash,
+    minimizeToTray,
+    setMinimizeToTray,
+    hotkeysOnlyCurrentTab,
+    setHotkeysOnlyCurrentTab,
+    disableAnalytics,
+    setDisableAnalytics,
+    topmost,
+    setTopmost,
+    autostart,
+    setAutostart,
+    advancedMode,
+    setAdvancedMode,
+  ] = useStore(
+    state => [
+      state.deleteToTrash,
+      state.setDeleteToTrash,
+      state.minimizeToTray,
+      state.setMinimizeToTray,
+      state.hotkeysOnlyCurrentTab,
+      state.setHotkeysOnlyCurrentTab,
+      state.disableAnalytics,
+      state.setDisableAnalytics,
+      state.topmost,
+      state.setTopmost,
+      state.autostart,
+      state.setAutostart,
+      state.advancedMode,
+      state.setAdvancedMode,
+    ],
+    shallow
+  );
   const [language, setLanguage] = useInputState('auto');
 
   return (
@@ -25,30 +54,45 @@ function TabOther() {
       <Text size="sm">Miscellaneous settings</Text>
       <Divider my="lg" variant="dotted" />
       <Group direction="column" grow>
-        <Switch checked={deleteToTrash} onChange={setDeleteToTrash} label="Delete to trash" size="md" />
+        <Switch
+          checked={deleteToTrash}
+          onChange={event => setDeleteToTrash(event.target.checked)}
+          label="Delete to trash"
+          size="md"
+        />
         <Switch
           checked={minimizeToTray}
-          onChange={setMinimizeToTray}
+          onChange={event => setMinimizeToTray(event.target.checked)}
           label="Minimize to tray"
           size="md"
         />
         <Switch
           checked={hotkeysOnlyCurrentTab}
-          onChange={setHotkeysOnlyCurrentTab}
+          onChange={event => setHotkeysOnlyCurrentTab(event.target.checked)}
           label="Hotkeys only for current tab"
           size="md"
         />
         <Switch
           checked={disableAnalytics}
-          onChange={setDisableAnalytics}
+          onChange={event => setDisableAnalytics(event.target.checked)}
           label="Disable analytics"
           size="md"
         />
-        <Switch checked={topmost} onChange={setTopmost} label="Topmost" size="md" />
-        <Switch checked={autostart} onChange={setAutostart} label="Autostart" size="md" />
+        <Switch
+          checked={topmost}
+          onChange={event => setTopmost(event.target.checked)}
+          label="Topmost"
+          size="md"
+        />
+        <Switch
+          checked={autostart}
+          onChange={event => setAutostart(event.target.checked)}
+          label="Autostart"
+          size="md"
+        />
         <Switch
           checked={advancedMode}
-          onChange={setAdvancedMode}
+          onChange={event => setAdvancedMode(event.target.checked)}
           label="Enable advanced mode"
           size="md"
         />
