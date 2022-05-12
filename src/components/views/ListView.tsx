@@ -17,11 +17,14 @@ function ListView() {
 
   const [folders, selectedFolder] = useStore(state => [state.folders, state.selectedFolder], shallow);
 
-  const sounds = folders.find(({ id }) => id === selectedFolder)?.sounds || [];
+  const currentFolder = folders.find(({ id }) => id === selectedFolder);
+  const sounds = currentFolder?.sounds || [];
 
   const removeSound = (sound: Sound) => {
     openSoundDeleteModal(modals, sound, () => {
-      console.log('Delete sound', sound);
+      if (currentFolder) {
+        currentFolder.sounds = currentFolder.sounds.filter(({ id }) => id !== sound.id);
+      }
     });
   };
 
