@@ -9,6 +9,7 @@ const initialSettings = {
   topmost: false,
   autostart: false,
   advancedMode: false,
+  language: 'auto',
 };
 
 export const useStore = create(
@@ -21,5 +22,6 @@ export const useStore = create(
     setTopmost: (value: boolean) => set(state => ({ ...state, topmost: value })),
     setAutostart: (value: boolean) => set(state => ({ ...state, autostart: value })),
     setAdvancedMode: (value: boolean) => set(state => ({ ...state, advancedMode: value })),
+    setLanguage: (value: string) => set(state => ({ ...state, language: value })),
   }))
 );

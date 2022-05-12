@@ -1,7 +1,6 @@
 import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine/core';
 import { useStore } from '../../store';
 import shallow from 'zustand/shallow';
-import { useInputState } from '@mantine/hooks';
 
 const languages: SelectItem[] = [
   { value: 'auto', label: 'Auto-detect (English)' },
@@ -25,6 +24,8 @@ function TabOther() {
     setAutostart,
     advancedMode,
     setAdvancedMode,
+    language,
+    setLanguage,
   ] = useStore(
     state => [
       state.deleteToTrash,
@@ -41,10 +42,11 @@ function TabOther() {
       state.setAutostart,
       state.advancedMode,
       state.setAdvancedMode,
+      state.language,
+      state.setLanguage,
     ],
     shallow
   );
-  const [language, setLanguage] = useInputState('auto');
 
   return (
     <Card p="lg" radius="lg">
