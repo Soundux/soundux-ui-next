@@ -12,6 +12,7 @@ export interface Folder {
   id: number;
   name: string;
   color: MantineColor;
+  sounds: Sound[];
 }
 
 export interface VirtualDevice {

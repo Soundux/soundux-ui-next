@@ -7,26 +7,19 @@ import {
   SyncIcon,
   XIcon,
 } from '@primer/octicons-react';
-import { useMemo, useState } from 'react';
 import { Folder } from '../types';
 import { openFolderRemoveModal } from '../modals';
 import { useModals } from '@mantine/modals';
+import { useStore } from '../store';
+import shallow from 'zustand/shallow';
 
 function AppNavbar() {
   const modals = useModals();
 
-  const [selectedFolder, setSelectedFolder] = useState(1);
-  const [folders, setFolders] = useState<Folder[]>([]);
-
-  useMemo(() => {
-    setFolders(
-      new Array(20).fill(0).map((_, i) => ({
-        id: i,
-        name: `Folder ${i + 1}`,
-        color: i % 2 === 0 ? 'red' : 'blue',
-      }))
-    );
-  }, []);
+  const [folders, setFolders, selectedFolder, setSelectedFolder] = useStore(
+    state => [state.folders, state.setFolders, state.selectedFolder, state.setSelectedFolder],
+    shallow
+  );
 
   const removeFolder = (folder: Folder) => {
     openFolderRemoveModal(modals, folder, () => {
