@@ -20,6 +20,18 @@ function VirtualDevices() {
     },
   ]);
 
+  function addDevice() {
+    setVirtualDevices(current => [
+      ...current,
+      {
+        id: current.length ? current[current.length - 1].id + 1 : 0,
+        name: 'New virtual device',
+        volume: 50,
+        connectedTo: [],
+      },
+    ]);
+  }
+
   function deleteDevice(virtualDevice: VirtualDevice) {
     setVirtualDevices(virtualDevices.filter(device => device.id !== virtualDevice.id));
   }
@@ -40,20 +52,7 @@ function VirtualDevices() {
           onDelete={deleteDevice}
         />
       ))}
-      <UnstyledButton
-        onClick={() =>
-          setVirtualDevices(current => [
-            ...current,
-            {
-              id: current.length ? current[current.length - 1].id + 1 : 0,
-              name: 'New virtual device',
-              volume: 50,
-              connectedTo: [],
-            },
-          ])
-        }
-        sx={{ marginLeft: '90px' }}
-      >
+      <UnstyledButton onClick={addDevice} sx={{ marginLeft: '90px' }}>
         <AddDeviceIcon style={{ width: '97px' }} />
       </UnstyledButton>
     </Group>
