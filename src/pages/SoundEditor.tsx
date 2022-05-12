@@ -17,7 +17,7 @@ function SoundEditor() {
 
   const folders = useStore(state => state.folders);
 
-  // map folders to select items with groups
+  // map sounds to select items with folder groups
   const sounds: SelectItem[] = folders.flatMap(folder =>
     folder.sounds.map(sound => ({
       value: `${folder.id} ${sound.id}`,
