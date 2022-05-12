@@ -4,7 +4,12 @@ import { Folder, Sound } from '../types';
 import { TrashIcon } from '@primer/octicons-react';
 import { ResetIcon } from '@radix-ui/react-icons';
 
-export const openSoundDeleteModal = (ctx: ModalsContextProps, sound: Sound, onConfirm: () => void) =>
+export const openSoundDeleteModal = (
+  ctx: ModalsContextProps,
+  sound: Sound,
+  deleteToTrash: boolean,
+  onConfirm: () => void
+) =>
   ctx.openConfirmModal({
     title: (
       <Text>
@@ -16,9 +21,17 @@ export const openSoundDeleteModal = (ctx: ModalsContextProps, sound: Sound, onCo
     ),
     centered: true,
     withCloseButton: false,
-    // TODO: change text depending on the state of deleteToTrash
-    children: <Text size="sm">Are you sure you want to delete this sound? This cannot be undone.</Text>,
-    labels: { confirm: 'Delete sound', cancel: "No, don't delete it" },
+    children: (
+      <Text size="sm">
+        {deleteToTrash
+          ? 'Are you sure you want to move this sound to the trash?'
+          : 'Are you sure you want to delete this sound? This cannot be undone.'}
+      </Text>
+    ),
+    labels: {
+      confirm: deleteToTrash ? 'Move to trash' : 'Delete',
+      cancel: "No, don't delete it",
+    },
     cancelProps: { leftIcon: <ResetIcon /> },
     confirmProps: { color: 'red', leftIcon: <TrashIcon /> },
     onConfirm,

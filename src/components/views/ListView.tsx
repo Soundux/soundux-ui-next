@@ -15,13 +15,16 @@ import shallow from 'zustand/shallow';
 function ListView() {
   const modals = useModals();
 
-  const [folders, selectedFolder] = useStore(state => [state.folders, state.selectedFolder], shallow);
+  const [folders, selectedFolder, deleteToTrash] = useStore(
+    state => [state.folders, state.selectedFolder, state.deleteToTrash],
+    shallow
+  );
 
   const currentFolder = folders.find(({ id }) => id === selectedFolder);
   const sounds = currentFolder?.sounds || [];
 
   const removeSound = (sound: Sound) => {
-    openSoundDeleteModal(modals, sound, () => {
+    openSoundDeleteModal(modals, sound, deleteToTrash, () => {
       if (currentFolder) {
         currentFolder.sounds = currentFolder.sounds.filter(({ id }) => id !== sound.id);
       }
