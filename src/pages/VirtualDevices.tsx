@@ -1,4 +1,4 @@
-import { Group, UnstyledButton } from '@mantine/core';
+import { Group, Tooltip, UnstyledButton } from '@mantine/core';
 import { useState } from 'react';
 import AddDeviceIcon from '../assets/AddDeviceIcon';
 import { VirtualDevice } from '../types';
@@ -52,9 +52,11 @@ function VirtualDevices() {
           onDelete={deleteDevice}
         />
       ))}
-      <UnstyledButton onClick={addDevice} sx={{ marginLeft: '90px' }}>
-        <AddDeviceIcon style={{ width: '97px' }} />
-      </UnstyledButton>
+      <Tooltip label="Add a new virtual device" withArrow sx={{ marginLeft: '90px' }}>
+        <UnstyledButton onClick={addDevice}>
+          <AddDeviceIcon style={{ width: '97px' }} />
+        </UnstyledButton>
+      </Tooltip>
     </Group>
   );
 }
