@@ -46,16 +46,15 @@ const initialState = {
 
 export const useStore = create(
   combine(initialState, set => ({
-    setDeleteToTrash: (value: boolean) => set(state => ({ ...state, deleteToTrash: value })),
-    setMinimizeToTray: (value: boolean) => set(state => ({ ...state, minimizeToTray: value })),
-    setHotkeysOnlyCurrentTab: (value: boolean) =>
-      set(state => ({ ...state, hotkeysOnlyCurrentTab: value })),
-    setDisableAnalytics: (value: boolean) => set(state => ({ ...state, disableAnalytics: value })),
-    setTopmost: (value: boolean) => set(state => ({ ...state, topmost: value })),
-    setAutostart: (value: boolean) => set(state => ({ ...state, autostart: value })),
-    setAdvancedMode: (value: boolean) => set(state => ({ ...state, advancedMode: value })),
-    setLanguage: (value: string) => set(state => ({ ...state, language: value })),
-    setSelectedFolder: (value: number) => set(state => ({ ...state, selectedFolder: value })),
-    setFolders: (value: Folder[]) => set(state => ({ ...state, folders: value })),
+    setDeleteToTrash: (value: boolean) => set(() => ({ deleteToTrash: value })),
+    setMinimizeToTray: (value: boolean) => set(() => ({ minimizeToTray: value })),
+    setHotkeysOnlyCurrentTab: (value: boolean) => set(() => ({ hotkeysOnlyCurrentTab: value })),
+    setDisableAnalytics: (value: boolean) => set(() => ({ disableAnalytics: value })),
+    setTopmost: (value: boolean) => set(() => ({ topmost: value })),
+    setAutostart: (value: boolean) => set(() => ({ autostart: value })),
+    setAdvancedMode: (value: boolean) => set(() => ({ advancedMode: value })),
+    setLanguage: (value: string) => set(() => ({ language: value })),
+    setSelectedFolder: (value: number) => set(() => ({ selectedFolder: value })),
+    setFolders: (value: Folder[]) => set(() => ({ folders: value })),
   }))
 );
