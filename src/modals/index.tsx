@@ -37,7 +37,7 @@ export const openFolderRemoveModal = (ctx: ModalsContextProps, folder: Folder, o
     centered: true,
     withCloseButton: false,
     children: <Text size="sm">Are you sure you want to remove this folder?</Text>,
-    labels: { confirm: 'Delete sound', cancel: "No, don't delete it" },
+    labels: { confirm: 'Delete folder', cancel: "No, don't delete it" },
     cancelProps: { leftIcon: <ResetIcon /> },
     confirmProps: { color: 'red', leftIcon: <TrashIcon /> },
     onConfirm,
