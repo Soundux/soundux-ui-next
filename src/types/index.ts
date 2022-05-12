@@ -2,6 +2,7 @@ import { MantineColor } from '@mantine/core';
 import { CheckboxListItem } from '../components/input/CheckboxList';
 
 export interface Sound {
+  id: number;
   name: string;
   fileType: string;
   length: string;

@@ -8,18 +8,21 @@ const folders: Folder[] = new Array(20).fill(0).map((_, i) => ({
   color: i % 2 === 0 ? 'red' : 'blue',
   sounds: [
     {
+      id: 2,
       name: `Folder ${i + 1} Sound 3`,
       fileType: 'webm',
       length: '0:31',
       modified: '15/02/2022',
     },
     {
+      id: 1,
       name: `Folder ${i + 1} Sound 2`,
       fileType: 'wav',
       length: '3:00',
       modified: '10 hours ago',
     },
     {
+      id: 0,
       name: `Folder ${i + 1} Sound 1`,
       fileType: 'mp3',
       length: '1:54',
