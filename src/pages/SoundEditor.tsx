@@ -4,13 +4,7 @@ import { useState } from 'react';
 import { CheckIcon, CopyIcon, UnmuteIcon } from '@primer/octicons-react';
 import GradientButton from '../components/input/GradientButton';
 import { ScissorsIcon } from '@radix-ui/react-icons';
-
-const sounds: SelectItem[] = [
-  { value: 'test', label: 'Test.mp3', group: 'Sounds 1' },
-  { value: 'test2', label: 'Test 2.mp3', group: 'Sounds 2' },
-  { value: 'test3', label: 'Test 3.mp3', group: 'Sounds 2' },
-  { value: 'test4', label: 'Test 4.mp3', group: 'Sounds 3' },
-];
+import { useStore } from '../store';
 
 const enum Mode {
   CUT,
@@ -18,8 +12,19 @@ const enum Mode {
 }
 
 function SoundEditor() {
-  const [selected, setSelected] = useState<string | null>('test');
+  const [selected, setSelected] = useState<string | null>('0 0');
   const [mode, setMode] = useState<Mode>(Mode.CUT);
+
+  const folders = useStore(state => state.folders);
+
+  // map folders to select items with groups
+  const sounds: SelectItem[] = folders.flatMap(folder =>
+    folder.sounds.map(sound => ({
+      value: `${folder.id} ${sound.id}`,
+      label: sound.name,
+      group: folder.name,
+    }))
+  );
 
   return (
     <Center sx={{ height: 'calc(100vh - 92px)' }}>
