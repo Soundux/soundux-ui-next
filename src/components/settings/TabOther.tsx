@@ -1,52 +1,31 @@
 import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine/core';
-import { useStore } from '../../store';
-import shallow from 'zustand/shallow';
+import {
+  advancedModeSetting,
+  autostartSetting,
+  deleteToTrashSetting,
+  disableAnalyticsSetting,
+  hotkeysOnlyCurrentTabSetting,
+  languageSetting,
+  minimizeToTraySetting,
+  topmostSetting,
+} from '../../store/settings';
+import { useAtom } from 'jotai';
 
 const languages: SelectItem[] = [
-  { value: 'auto', label: 'Auto-detect (English)' },
+  { value: '', label: 'Auto-detect (English)' },
   { value: 'en', label: 'English' },
   { value: 'de', label: 'German' },
 ];
 
 function TabOther() {
-  const [
-    deleteToTrash,
-    setDeleteToTrash,
-    minimizeToTray,
-    setMinimizeToTray,
-    hotkeysOnlyCurrentTab,
-    setHotkeysOnlyCurrentTab,
-    disableAnalytics,
-    setDisableAnalytics,
-    topmost,
-    setTopmost,
-    autostart,
-    setAutostart,
-    advancedMode,
-    setAdvancedMode,
-    language,
-    setLanguage,
-  ] = useStore(
-    state => [
-      state.deleteToTrash,
-      state.setDeleteToTrash,
-      state.minimizeToTray,
-      state.setMinimizeToTray,
-      state.hotkeysOnlyCurrentTab,
-      state.setHotkeysOnlyCurrentTab,
-      state.disableAnalytics,
-      state.setDisableAnalytics,
-      state.topmost,
-      state.setTopmost,
-      state.autostart,
-      state.setAutostart,
-      state.advancedMode,
-      state.setAdvancedMode,
-      state.language,
-      state.setLanguage,
-    ],
-    shallow
-  );
+  const [deleteToTrash, setDeleteToTrash] = useAtom(deleteToTrashSetting);
+  const [minimizeToTray, setMinimizeToTray] = useAtom(minimizeToTraySetting);
+  const [hotkeysOnlyCurrentTab, setHotkeysOnlyCurrentTab] = useAtom(hotkeysOnlyCurrentTabSetting);
+  const [disableAnalytics, setDisableAnalytics] = useAtom(disableAnalyticsSetting);
+  const [topmost, setTopmost] = useAtom(topmostSetting);
+  const [autostart, setAutostart] = useAtom(autostartSetting);
+  const [advancedMode, setAdvancedMode] = useAtom(advancedModeSetting);
+  const [language, setLanguage] = useAtom(languageSetting);
 
   return (
     <Card p="lg" radius="lg">
@@ -103,7 +82,7 @@ function TabOther() {
           placeholder="Pick one"
           data={languages}
           value={language}
-          onChange={setLanguage}
+          onChange={x => setLanguage(x ?? '')}
         />
       </Group>
     </Card>

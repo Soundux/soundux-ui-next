@@ -1,6 +1,5 @@
-import create from 'zustand';
-import { combine } from 'zustand/middleware';
 import { Folder } from '../types';
+import { atom } from 'jotai';
 
 const folders: Folder[] = new Array(20).fill(0).map((_, i) => ({
   id: i,
@@ -31,30 +30,8 @@ const folders: Folder[] = new Array(20).fill(0).map((_, i) => ({
   ],
 }));
 
-const initialState = {
-  deleteToTrash: false,
-  minimizeToTray: false,
-  hotkeysOnlyCurrentTab: false,
-  disableAnalytics: false,
-  topmost: false,
-  autostart: false,
-  advancedMode: false,
-  language: 'auto',
-  selectedFolder: 0, // id of the selected folder
-  folders,
-};
-
-export const useStore = create(
-  combine(initialState, set => ({
-    setDeleteToTrash: (value: boolean) => set(() => ({ deleteToTrash: value })),
-    setMinimizeToTray: (value: boolean) => set(() => ({ minimizeToTray: value })),
-    setHotkeysOnlyCurrentTab: (value: boolean) => set(() => ({ hotkeysOnlyCurrentTab: value })),
-    setDisableAnalytics: (value: boolean) => set(() => ({ disableAnalytics: value })),
-    setTopmost: (value: boolean) => set(() => ({ topmost: value })),
-    setAutostart: (value: boolean) => set(() => ({ autostart: value })),
-    setAdvancedMode: (value: boolean) => set(() => ({ advancedMode: value })),
-    setLanguage: (value: string) => set(() => ({ language: value })),
-    setSelectedFolder: (value: number) => set(() => ({ selectedFolder: value })),
-    setFolders: (value: Folder[]) => set(() => ({ folders: value })),
-  }))
+export const foldersAtom = atom(folders);
+export const selectedFolderAtom = atom(0);
+export const currentFolderAtom = atom(get =>
+  folders.find(folder => folder.id === get(selectedFolderAtom))
 );

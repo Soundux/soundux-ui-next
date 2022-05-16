@@ -10,16 +10,14 @@ import {
 import { Folder } from '../types';
 import { openFolderRemoveModal } from '../modals';
 import { useModals } from '@mantine/modals';
-import { useStore } from '../store';
-import shallow from 'zustand/shallow';
+import { useAtom } from 'jotai';
+import { foldersAtom, selectedFolderAtom } from '../store';
 
 function AppNavbar() {
   const modals = useModals();
 
-  const [folders, setFolders, selectedFolder, setSelectedFolder] = useStore(
-    state => [state.folders, state.setFolders, state.selectedFolder, state.setSelectedFolder],
-    shallow
-  );
+  const [folders, setFolders] = useAtom(foldersAtom);
+  const [selectedFolder, setSelectedFolder] = useAtom(selectedFolderAtom);
 
   const removeFolder = (folder: Folder) => {
     openFolderRemoveModal(modals, folder, () => {

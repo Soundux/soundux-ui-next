@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { CheckIcon, CopyIcon, UnmuteIcon } from '@primer/octicons-react';
 import GradientButton from '../components/input/GradientButton';
 import { ScissorsIcon } from '@radix-ui/react-icons';
-import { useStore } from '../store';
+import { useAtom } from 'jotai';
+import { foldersAtom } from '../store';
 
 const enum Mode {
   CUT,
@@ -15,7 +16,7 @@ function SoundEditor() {
   const [selected, setSelected] = useState<string | null>('0 0');
   const [mode, setMode] = useState<Mode>(Mode.CUT);
 
-  const folders = useStore(state => state.folders);
+  const [folders] = useAtom(foldersAtom);
 
   // map sounds to select items with folder groups
   const sounds: SelectItem[] = folders.flatMap(folder =>

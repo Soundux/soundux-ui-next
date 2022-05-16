@@ -9,18 +9,16 @@ import {
 import { Sound } from '../../types';
 import { useModals } from '@mantine/modals';
 import { openSoundDeleteModal } from '../../modals';
-import { useStore } from '../../store';
-import shallow from 'zustand/shallow';
+import { useAtom } from 'jotai';
+import { currentFolderAtom } from '../../store';
+import { deleteToTrashSetting } from '../../store/settings';
 
 function ListView() {
   const modals = useModals();
 
-  const [folders, selectedFolder, deleteToTrash] = useStore(
-    state => [state.folders, state.selectedFolder, state.deleteToTrash],
-    shallow
-  );
+  const [deleteToTrash] = useAtom(deleteToTrashSetting);
 
-  const currentFolder = folders.find(({ id }) => id === selectedFolder);
+  const [currentFolder] = useAtom(currentFolderAtom);
   const sounds = currentFolder?.sounds || [];
 
   const removeSound = (sound: Sound) => {
