@@ -1,7 +1,7 @@
-import { Text } from '@mantine/core';
+import { Button, Text, TextInput } from '@mantine/core';
 import { ModalsContextProps } from '@mantine/modals/lib/context';
 import { Folder, Sound } from '../types';
-import { TrashIcon } from '@primer/octicons-react';
+import { PlusIcon, TrashIcon } from '@primer/octicons-react';
 import { ResetIcon } from '@radix-ui/react-icons';
 
 export const openSoundDeleteModal = (
@@ -55,3 +55,37 @@ export const openFolderRemoveModal = (ctx: ModalsContextProps, folder: Folder, o
     confirmProps: { color: 'red', leftIcon: <TrashIcon /> },
     onConfirm,
   });
+
+export const openVirtualDeviceCreationModal = (
+  ctx: ModalsContextProps,
+  onConfirm: (text: string) => void
+) => {
+  let newDeviceName = 'New virtual device';
+
+  const id = ctx.openModal({
+    title: 'Create a new virtual device',
+    centered: true,
+    children: (
+      <>
+        <TextInput
+          label="Name"
+          placeholder="New virtual device"
+          onChange={event => (newDeviceName = event.target.value || 'New virtual device')}
+          data-autofocus
+        />
+        <Button
+          fullWidth
+          onClick={() => {
+            ctx.closeModal(id);
+            onConfirm(newDeviceName);
+          }}
+          mt="md"
+          leftIcon={<PlusIcon />}
+        >
+          Create
+        </Button>
+      </>
+    ),
+  });
+  return id;
+};

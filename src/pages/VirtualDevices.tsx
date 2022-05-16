@@ -4,6 +4,8 @@ import AddDeviceIcon from '../assets/AddDeviceIcon';
 import { VirtualDevice } from '../types';
 import VirtualDeviceCard from '../components/VirtualDeviceCard';
 import { CheckboxListItem } from '../components/input/CheckboxList';
+import { openVirtualDeviceCreationModal } from '../modals';
+import { useModals } from '@mantine/modals';
 
 const availableMicrophones: CheckboxListItem[] = [];
 for (let i = 0; i <= 10; i++) {
@@ -11,6 +13,8 @@ for (let i = 0; i <= 10; i++) {
 }
 
 function VirtualDevices() {
+  const modals = useModals();
+
   const [virtualDevices, setVirtualDevices] = useState<VirtualDevice[]>([
     {
       id: 0,
@@ -21,15 +25,17 @@ function VirtualDevices() {
   ]);
 
   function addDevice() {
-    setVirtualDevices(current => [
-      ...current,
-      {
-        id: current.length ? current[current.length - 1].id + 1 : 0,
-        name: 'New virtual device',
-        volume: 50,
-        connectedTo: [],
-      },
-    ]);
+    openVirtualDeviceCreationModal(modals, name => {
+      setVirtualDevices(current => [
+        ...current,
+        {
+          id: current.length ? current[current.length - 1].id + 1 : 0,
+          name,
+          volume: 50,
+          connectedTo: [],
+        },
+      ]);
+    });
   }
 
   function deleteDevice(virtualDevice: VirtualDevice) {
