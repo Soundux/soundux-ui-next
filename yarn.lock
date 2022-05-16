@@ -411,10 +411,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fontsource/open-sans@^4.5.8":
-  version "4.5.8"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.8.tgz#31f727353e89ce886e1076bd58536834e0778fda"
-  integrity sha512-3b94XDdRLqL7OlE7OjWg/4pgG825Juw8PLVEDm6h5pio0gMU89ICxfatGxHsBxMGfqad+wnvdmUweZWlELDFpQ==
+"@fontsource/open-sans@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.10.tgz#c4269c54d6f5f8661322facb5946d8188fadc7f2"
+  integrity sha512-MrtTDfWb1Tu9YxVh2KaKmsKBn6O3KL/lHZS0KRKK58jgqvdwuiDt4QW4udmW4FQf0XOWgnZ+4vKUF80F3SqBAA==
 
 "@fortawesome/fontawesome-common-types@6.1.1":
   version "6.1.1"
