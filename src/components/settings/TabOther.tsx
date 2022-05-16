@@ -5,6 +5,7 @@ import {
   deleteToTrashSetting,
   disableAnalyticsSetting,
   hotkeysOnlyCurrentTabSetting,
+  SupportedLanguage,
   languageSetting,
   minimizeToTraySetting,
   topmostSetting,
@@ -12,7 +13,7 @@ import {
 import { useAtom } from 'jotai';
 
 const languages: SelectItem[] = [
-  { value: '', label: 'Auto-detect (English)' },
+  { value: 'auto', label: 'Auto-detect (English)' },
   { value: 'en', label: 'English' },
   { value: 'de', label: 'German' },
 ];
@@ -82,7 +83,7 @@ function TabOther() {
           placeholder="Pick one"
           data={languages}
           value={language}
-          onChange={x => setLanguage(x ?? '')}
+          onChange={(x: SupportedLanguage) => setLanguage(x)}
         />
       </Group>
     </Card>
