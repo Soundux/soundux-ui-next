@@ -1,4 +1,4 @@
-import { ClassNames, createStyles } from '@mantine/styles';
+import { Selectors, createStyles } from '@mantine/styles';
 
 interface CheckboxListStyles {
   ITEM_PADDING: number;
@@ -64,6 +64,6 @@ const styles = createStyles((theme, { ITEM_PADDING }: CheckboxListStyles) => ({
   },
 }));
 
-export declare type CheckboxListStylesNames = ClassNames<typeof styles>;
+export declare type CheckboxListStylesNames = Selectors<typeof styles>;
 
 export default styles;
