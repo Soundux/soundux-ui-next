@@ -13,7 +13,7 @@ const enum Mode {
 }
 
 function SoundEditor() {
-  const [selected, setSelected] = useState<string | null>('0 0');
+  const [selected, setSelected] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>(Mode.CUT);
 
   const [folders] = useAtom(foldersAtom);
