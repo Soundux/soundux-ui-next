@@ -60,7 +60,13 @@ export const openVirtualDeviceCreationModal = (
   ctx: ModalsContextProps,
   onConfirm: (text: string) => void
 ) => {
-  let newDeviceName = 'New virtual device';
+  const defaultDeviceName = 'New virtual device';
+  let newDeviceName = defaultDeviceName;
+
+  const submit = () => {
+    ctx.closeModal(id);
+    onConfirm(newDeviceName);
+  };
 
   const id = ctx.openModal({
     title: 'Create a new virtual device',
@@ -69,19 +75,16 @@ export const openVirtualDeviceCreationModal = (
       <>
         <TextInput
           label="Name"
-          placeholder="New virtual device"
-          onChange={event => (newDeviceName = event.target.value || 'New virtual device')}
+          placeholder={defaultDeviceName}
+          onChange={event => (newDeviceName = event.target.value || defaultDeviceName)}
+          onKeyDown={event => {
+            if (event.key === 'Enter') {
+              submit();
+            }
+          }}
           data-autofocus
         />
-        <Button
-          fullWidth
-          onClick={() => {
-            ctx.closeModal(id);
-            onConfirm(newDeviceName);
-          }}
-          mt="md"
-          leftIcon={<PlusIcon />}
-        >
+        <Button fullWidth onClick={submit} mt="md" leftIcon={<PlusIcon />}>
           Create
         </Button>
       </>
