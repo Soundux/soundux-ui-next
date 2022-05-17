@@ -31,7 +31,7 @@ const folders: Folder[] = new Array(20).fill(0).map((_, i) => ({
 }));
 
 export const foldersAtom = atom(folders);
-export const selectedFolderAtom = atom(0);
+export const selectedFolderAtom = atom<number | null>(0);
 export const currentFolderAtom = atom(get =>
   folders.find(folder => folder.id === get(selectedFolderAtom))
 );

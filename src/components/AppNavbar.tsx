@@ -22,8 +22,19 @@ function AppNavbar() {
   const removeFolder = (folder: Folder) => {
     openFolderRemoveModal(modals, folder, () => {
       setFolders(folders.filter(({ id }) => id !== folder.id));
-      if (folders.length) {
-        setSelectedFolder(folders[0].id);
+
+      // select another folder if the removed folder was selected
+      if (selectedFolder === folder.id) {
+        // getting it here is fine because the setFolders transaction is not yet committed
+        const oldIndex = folders.indexOf(folder);
+        // if there is no previous folder, use the next one (happens when removing the first folder)
+        const newFolder = folders[oldIndex - 1] || folders[oldIndex + 1];
+        if (newFolder) {
+          setSelectedFolder(newFolder.id);
+        } else {
+          // no folders left
+          setSelectedFolder(null);
+        }
       }
     });
   };
