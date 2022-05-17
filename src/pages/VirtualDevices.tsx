@@ -4,7 +4,7 @@ import AddDeviceIcon from '../assets/AddDeviceIcon';
 import { VirtualDevice } from '../types';
 import VirtualDeviceCard from '../components/VirtualDeviceCard';
 import { CheckboxListItem } from '../components/input/CheckboxList';
-import { openVirtualDeviceCreationModal } from '../modals';
+import { openVirtualDeviceCreationModal, openVirtualDeviceRemoveModal } from '../modals';
 import { useModals } from '@mantine/modals';
 
 const availableMicrophones: CheckboxListItem[] = [];
@@ -39,7 +39,9 @@ function VirtualDevices() {
   }
 
   function deleteDevice(virtualDevice: VirtualDevice) {
-    setVirtualDevices(virtualDevices.filter(device => device.id !== virtualDevice.id));
+    openVirtualDeviceRemoveModal(modals, virtualDevice, () => {
+      setVirtualDevices(virtualDevices.filter(device => device.id !== virtualDevice.id));
+    });
   }
 
   return (
