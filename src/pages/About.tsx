@@ -13,7 +13,7 @@ function About() {
         <Group noWrap>
           <Logo style={{ visibility: 'hidden' }} />
           <Group direction="column">
-            <Text weight={600}>Soundux Next (3.0.0 Beta)</Text>
+            <Text weight={600}>Soundux 3.0 &quot;Epsilon&quot; (Beta)</Text>
             <Text weight={300}>
               Soundux is a cross-platform soundboard that features a simple user interface. With Soundux
               you can play audio to a specific application on Linux and to your VB-CABLE sink on Windows.
