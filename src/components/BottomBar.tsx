@@ -1,14 +1,9 @@
 import { ActionIcon, Group, Paper, Slider, SliderProps, Text } from '@mantine/core';
-import { PauseIcon } from '@radix-ui/react-icons';
-import {
-  HeartIcon,
-  IterationsIcon,
-  MultiSelectIcon,
-  MuteIcon,
-  SyncIcon,
-  UnmuteIcon,
-} from '@primer/octicons-react';
+import { PauseIcon, PlayIcon } from '@radix-ui/react-icons';
+import { HeartIcon, IterationsIcon, MultiSelectIcon, SyncIcon } from '@primer/octicons-react';
 import { useHover } from '@mantine/hooks';
+import { useState } from 'react';
+import ReactiveVolumeIcon from './ReactiveVolumeIcon';
 
 function StyledSlider(props: SliderProps) {
   const { hovered, ref } = useHover();
@@ -48,6 +43,11 @@ function StyledSlider(props: SliderProps) {
 }
 
 function BottomBar() {
+  const [paused, setPaused] = useState(false);
+
+  const [localVolume, setLocalVolume] = useState(50);
+  const [remoteVolume, setRemoteVolume] = useState(0);
+
   return (
     <>
       <Paper
@@ -70,8 +70,14 @@ function BottomBar() {
               <ActionIcon variant="transparent" size="xs">
                 <IterationsIcon />
               </ActionIcon>
-              <ActionIcon variant="filled" radius="xl" color="accent2" size="lg">
-                <PauseIcon height={25} width={25} />
+              <ActionIcon
+                variant="filled"
+                radius="xl"
+                color="accent2"
+                size="lg"
+                onClick={() => setPaused(!paused)}
+              >
+                {paused ? <PlayIcon height={25} width={25} /> : <PauseIcon height={25} width={25} />}
               </ActionIcon>
               <ActionIcon variant="transparent" size="xs">
                 <SyncIcon />
@@ -89,12 +95,22 @@ function BottomBar() {
             </ActionIcon>
             <Group direction="column">
               <Group noWrap>
-                <UnmuteIcon />
-                <StyledSlider label={value => `${value}%`} defaultValue={50} sx={{ width: '200px' }} />
+                <ReactiveVolumeIcon volume={localVolume} />
+                <StyledSlider
+                  label={value => `${value}%`}
+                  value={localVolume}
+                  onChange={setLocalVolume}
+                  sx={{ width: '200px' }}
+                />
               </Group>
               <Group noWrap>
-                <MuteIcon />
-                <StyledSlider label={value => `${value}%`} defaultValue={0} sx={{ width: '200px' }} />
+                <ReactiveVolumeIcon volume={remoteVolume} />
+                <StyledSlider
+                  label={value => `${value}%`}
+                  value={remoteVolume}
+                  onChange={setRemoteVolume}
+                  sx={{ width: '200px' }}
+                />
               </Group>
             </Group>
           </Group>
