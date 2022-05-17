@@ -72,34 +72,42 @@ function SoundEditor() {
               </Button>
             </Group>
           </Group>
-          <Divider my="lg" variant="dotted" />
-          <Paper
-            radius="lg"
-            sx={theme => ({
-              backgroundColor: theme.colors.dark[7],
-              position: 'relative',
-              marginBottom: 'auto',
-              marginTop: 'auto',
-              height: '190px',
-            })}
-          >
-            <img src={Wave} alt="Wave" style={{ height: '100%', position: 'absolute', zIndex: 1 }} />
-            <Divider
-              variant="dashed"
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '97.5%',
-                zIndex: 0,
-              }}
-            />
-          </Paper>
-          <Group position="right" mb="xs">
-            <GradientButton leftIcon={<CopyIcon />}>Save as copy</GradientButton>
-            <GradientButton leftIcon={<CheckIcon />}>Save</GradientButton>
-          </Group>
+          {selected ? (
+            <>
+              <Divider my="lg" variant="dotted" />
+              <Paper
+                radius="lg"
+                sx={theme => ({
+                  backgroundColor: theme.colors.dark[7],
+                  position: 'relative',
+                  marginBottom: 'auto',
+                  marginTop: 'auto',
+                  height: '190px',
+                })}
+              >
+                <img src={Wave} alt="Wave" style={{ height: '100%', position: 'absolute', zIndex: 1 }} />
+                <Divider
+                  variant="dashed"
+                  sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '97.5%',
+                    zIndex: 0,
+                  }}
+                />
+              </Paper>
+              <Group position="right" mb="xs">
+                <GradientButton leftIcon={<CopyIcon />}>Save as copy</GradientButton>
+                <GradientButton leftIcon={<CheckIcon />}>Save</GradientButton>
+              </Group>
+            </>
+          ) : (
+            <Center>
+              <Text>No sound selected</Text>
+            </Center>
+          )}
         </Group>
       </Card>
     </Center>
