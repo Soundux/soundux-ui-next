@@ -62,6 +62,17 @@ const styles = createStyles((theme, { ITEM_PADDING }: CheckboxListStyles) => ({
     display: 'block',
     borderBottomColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4],
   },
+
+  separator: {
+    boxSizing: 'border-box',
+    textAlign: 'left',
+    width: '100%',
+    padding: '7px 12px',
+  },
+
+  separatorLabel: {
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[5],
+  },
 }));
 
 export declare type CheckboxListStylesNames = Selectors<typeof styles>;

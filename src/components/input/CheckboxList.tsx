@@ -1,5 +1,7 @@
 import {
   DefaultProps,
+  Divider,
+  groupOptions,
   ScrollArea,
   Text,
   TextInput,
@@ -11,7 +13,7 @@ import React, { CSSProperties, useRef, useState } from 'react';
 import { useInputState, useScrollIntoView } from '@mantine/hooks';
 import CheckboxListDefaultItem from './CheckboxListDefaultItem';
 
-export type CheckboxListItem = Omit<TransferListItem, 'group'>;
+export type CheckboxListItem = TransferListItem;
 
 export interface CheckboxListItemComponentProps {
   data: CheckboxListItem;
@@ -61,6 +63,10 @@ function CheckboxList({
     { name: 'CheckboxList', classNames, styles }
   );
   const items: React.ReactElement[] = [];
+
+  const unGroupedItems: React.ReactElement[] = [];
+  const groupedItems: React.ReactElement[] = [];
+
   const [query, setQuery] = useInputState('');
   const [hovered, setHovered] = useState(-1);
   const filteredData = data.filter(item => filter(query, item)).slice(0, limit);
@@ -75,6 +81,8 @@ function CheckboxList({
     }
   };
 
+  const sortedData: CheckboxListItem[] = groupOptions({ data: filteredData });
+
   const { scrollIntoView, targetRef, scrollableRef } = useScrollIntoView({
     duration: 0,
     offset: 5,
@@ -82,7 +90,9 @@ function CheckboxList({
     isList: true,
   });
 
-  filteredData.forEach((item, index) => {
+  let groupName: string | null = null;
+
+  sortedData.forEach((item, index) => {
     const itemComponent = (
       <UnstyledButton
         tabIndex={-1}
@@ -102,7 +112,19 @@ function CheckboxList({
       </UnstyledButton>
     );
 
-    items.push(itemComponent);
+    if (!item.group) {
+      unGroupedItems.push(itemComponent);
+    } else {
+      if (groupName !== item.group) {
+        groupName = item.group;
+        groupedItems.push(
+          <div className={classes.separator} key={groupName}>
+            <Divider classNames={{ label: classes.separatorLabel }} label={groupName} />
+          </div>
+        );
+      }
+      groupedItems.push(itemComponent);
+    }
   });
 
   const handleSearchKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -177,8 +199,11 @@ function CheckboxList({
           className={classes.checkboxListItems}
           style={{ width: '100%', height, position: 'relative', overflowX: 'hidden' }}
         >
-          {items.length > 0 ? (
-            items
+          {groupedItems.length > 0 || unGroupedItems.length > 0 ? (
+            <>
+              {groupedItems}
+              {unGroupedItems}
+            </>
           ) : (
             <Text color="dimmed" size="sm" align="center" mt="sm">
               {nothingFound}
