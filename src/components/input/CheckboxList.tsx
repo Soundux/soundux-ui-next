@@ -1,5 +1,4 @@
 import {
-  Checkbox,
   DefaultProps,
   ScrollArea,
   Text,
@@ -10,14 +9,24 @@ import {
 import useStyles, { CheckboxListStylesNames } from './CheckboxList.styles';
 import React, { CSSProperties, useRef, useState } from 'react';
 import { useInputState, useScrollIntoView } from '@mantine/hooks';
+import CheckboxListDefaultItem from './CheckboxListDefaultItem';
 
 export type CheckboxListItem = Omit<TransferListItem, 'group'>;
+
+export interface CheckboxListItemComponentProps {
+  data: CheckboxListItem;
+  selected: boolean;
+}
+
+export type CheckboxListItemComponent = React.FC<CheckboxListItemComponentProps>;
 
 export interface CheckboxListProps extends DefaultProps<CheckboxListStylesNames> {
   data: CheckboxListItem[];
   selection: CheckboxListItem[];
 
   onChange(value: CheckboxListItem[]): void;
+
+  itemComponent?: CheckboxListItemComponent;
 
   searchPlaceholder: string;
   nothingFound?: React.ReactNode;
@@ -36,6 +45,7 @@ function CheckboxList({
   data,
   onChange,
   selection,
+  itemComponent: ItemComponent = CheckboxListDefaultItem,
   searchPlaceholder,
   nothingFound,
   title,
@@ -88,13 +98,7 @@ function CheckboxList({
           }
         }}
       >
-        <Checkbox
-          checked={selection.map(x => x.value).includes(item.value)}
-          onChange={() => {}}
-          label={item.label}
-          tabIndex={-1}
-          sx={{ pointerEvents: 'none' }}
-        />
+        <ItemComponent selected={selection.map(x => x.value).includes(item.value)} data={item} />
       </UnstyledButton>
     );
 
