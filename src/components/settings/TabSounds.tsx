@@ -1,18 +1,23 @@
-import { Card, Divider, Group, MultiSelect, SelectItem, Switch, Text } from '@mantine/core';
-import { useState } from 'react';
-import { useInputState } from '@mantine/hooks';
-
-const playbackDevices: SelectItem[] = [
-  { value: 'default', label: 'Default' },
-  { value: 'other', label: 'Other' },
-];
+import { Card, Divider, Group, MultiSelect, Switch, Text } from '@mantine/core';
+import { useAtom } from 'jotai';
+import {
+  allowSoundOverlappingSetting,
+  localPlaybackDeviceSetting,
+  remotePlaybackDeviceSetting,
+  muteDuringPlaybackSetting,
+  volumeNormalizationSetting,
+} from '../../store/settings';
+import { availableMicrophonesAtom, playbackDevicesAtom } from '../../store';
 
 function TabSounds() {
-  const [localPlaybackDevice, setLocalPlaybackDevice] = useState<string[]>(['default', 'other']);
-  const [remotePlaybackDevice, setRemotePlaybackDevice] = useState<string[]>(['default', 'other']);
-  const [allowSoundOverlapping, setAllowSoundOverlapping] = useInputState(true);
-  const [muteDuringPlayback, setMuteDuringPlayback] = useInputState(true);
-  const [volumeNormalization, setVolumeNormalization] = useInputState(true);
+  const [playbackDevices] = useAtom(playbackDevicesAtom);
+  const [availableMicrophones] = useAtom(availableMicrophonesAtom);
+
+  const [localPlaybackDevice, setLocalPlaybackDevice] = useAtom(localPlaybackDeviceSetting);
+  const [remotePlaybackDevice, setRemotePlaybackDevice] = useAtom(remotePlaybackDeviceSetting);
+  const [allowSoundOverlapping, setAllowSoundOverlapping] = useAtom(allowSoundOverlappingSetting);
+  const [muteDuringPlayback, setMuteDuringPlayback] = useAtom(muteDuringPlaybackSetting);
+  const [volumeNormalization, setVolumeNormalization] = useAtom(volumeNormalizationSetting);
 
   return (
     <Card p="lg" radius="lg">
@@ -30,7 +35,7 @@ function TabSounds() {
           placeholder="Choose your speakers"
         />
         <MultiSelect
-          data={playbackDevices}
+          data={availableMicrophones}
           value={remotePlaybackDevice}
           onChange={setRemotePlaybackDevice}
           label="Microphone"
@@ -38,19 +43,19 @@ function TabSounds() {
         />
         <Switch
           checked={allowSoundOverlapping}
-          onChange={setAllowSoundOverlapping}
+          onChange={event => setAllowSoundOverlapping(event.target.checked)}
           label="Allow sound overlapping"
           size="md"
         />
         <Switch
           checked={muteDuringPlayback}
-          onChange={setMuteDuringPlayback}
+          onChange={event => setMuteDuringPlayback(event.target.checked)}
           label="Mute during playback"
           size="md"
         />
         <Switch
           checked={volumeNormalization}
-          onChange={setVolumeNormalization}
+          onChange={event => setVolumeNormalization(event.target.checked)}
           label="Volume normalization (Experimental)"
           size="md"
         />

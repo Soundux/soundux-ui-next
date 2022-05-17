@@ -16,6 +16,11 @@ export interface Folder {
   sounds: Sound[];
 }
 
+export interface Device {
+  value: string;
+  label: string;
+}
+
 export interface VirtualDevice {
   id: number;
   name: string;
