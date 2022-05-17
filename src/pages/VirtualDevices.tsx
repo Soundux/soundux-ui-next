@@ -5,12 +5,11 @@ import VirtualDeviceCard from '../components/VirtualDeviceCard';
 import { openVirtualDeviceCreationModal, openVirtualDeviceRemoveModal } from '../modals';
 import { useModals } from '@mantine/modals';
 import { useAtom } from 'jotai';
-import { availableMicrophonesAtom, virtualDevicesAtom } from '../store';
+import { virtualDevicesAtom } from '../store';
 
 function VirtualDevices() {
   const modals = useModals();
 
-  const [availableMicrophones] = useAtom(availableMicrophonesAtom);
   const [virtualDevices, setVirtualDevices] = useAtom(virtualDevicesAtom);
 
   function addDevice() {
@@ -45,7 +44,6 @@ function VirtualDevices() {
         <VirtualDeviceCard
           key={virtualDevice.id}
           virtualDevice={virtualDevice}
-          availableMicrophones={availableMicrophones}
           onDelete={deleteDevice}
         />
       ))}

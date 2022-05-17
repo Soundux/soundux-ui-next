@@ -22,6 +22,7 @@
     "@mantine/notifications": "^4.2.5",
     "@primer/octicons-react": "^17.2.0",
     "@radix-ui/react-icons": "^1.1.1",
+    "fast-average-color": "^7.1.0",
     "jotai": "^1.6.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

@@ -8,7 +8,6 @@ import AppHeader from './components/AppHeader';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 import VirtualDevices from './pages/VirtualDevices';
-import PassThrough from './pages/PassThrough';
 import About from './pages/About';
 import SoundEditor from './pages/SoundEditor';
 import Welcome from './pages/Welcome';
@@ -58,7 +57,6 @@ function App() {
               <Route path="/welcome" element={<Welcome />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/virtualDevices" element={<VirtualDevices />} />
-              <Route path="/passThrough" element={<PassThrough />} />
               <Route path="/soundEditor" element={<SoundEditor />} />
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFoundTitle />} />

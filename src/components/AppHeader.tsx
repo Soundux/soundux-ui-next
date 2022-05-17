@@ -6,7 +6,6 @@ import {
   GitPullRequestIcon,
   PlusIcon,
   SearchIcon,
-  WebhookIcon,
   HomeIcon,
   InfoIcon,
   PencilIcon,
@@ -65,9 +64,6 @@ function AppHeader() {
           </NavigationButton>
           <NavigationButton to="/virtualDevices" leftIcon={<GitPullRequestIcon />}>
             Virtual Devices
-          </NavigationButton>
-          <NavigationButton to="/passThrough" leftIcon={<WebhookIcon />}>
-            Pass-through
           </NavigationButton>
           <NavigationButton to="/soundEditor" leftIcon={<PencilIcon />}>
             Sound Editor
