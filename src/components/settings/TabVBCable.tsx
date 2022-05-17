@@ -1,15 +1,13 @@
 import { CheckIcon, ChevronRightIcon, SkipIcon } from '@primer/octicons-react';
-import { Card, Divider, Group, Select, SelectItem, Text } from '@mantine/core';
+import { Card, Divider, Group, Select, Text } from '@mantine/core';
 import GradientButton from '../input/GradientButton';
 import { useState } from 'react';
-
-const microphones: SelectItem[] = [
-  { value: 'one', label: 'Microphone 1' },
-  { value: 'two', label: 'Microphone 2' },
-];
+import { useAtom } from 'jotai';
+import { availableMicrophonesAtom } from '../../store';
 
 function TabVBCable() {
-  const [primaryMicrophone, setPrimaryMicrophone] = useState<string | null>('one');
+  const [availableMicrophones] = useAtom(availableMicrophonesAtom);
+  const [primaryMicrophone, setPrimaryMicrophone] = useState<string | null>(null);
 
   return (
     <Card p="lg" radius="lg">
@@ -34,9 +32,10 @@ function TabVBCable() {
       <Divider my="lg" variant="dotted" />
       <Select
         label="Primary Microphone"
-        data={microphones}
+        data={availableMicrophones}
         value={primaryMicrophone}
         onChange={setPrimaryMicrophone}
+        placeholder="Select a microphone"
         mb="lg"
       />
       <Group spacing="xs" direction="column">
