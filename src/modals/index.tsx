@@ -1,7 +1,7 @@
 import { Button, Text, TextInput } from '@mantine/core';
 import { ModalsContextProps } from '@mantine/modals/lib/context';
 import { Folder, Sound } from '../types';
-import { PlusIcon, TrashIcon } from '@primer/octicons-react';
+import { PlusIcon, TrashIcon, XIcon } from '@primer/octicons-react';
 import { ResetIcon } from '@radix-ui/react-icons';
 
 export const openSoundDeleteModal = (
@@ -41,7 +41,7 @@ export const openFolderRemoveModal = (ctx: ModalsContextProps, folder: Folder, o
   ctx.openConfirmModal({
     title: (
       <Text>
-        Delete{' '}
+        Remove{' '}
         <Text component="span" weight="bold">
           {folder.name}
         </Text>
@@ -50,9 +50,9 @@ export const openFolderRemoveModal = (ctx: ModalsContextProps, folder: Folder, o
     centered: true,
     withCloseButton: false,
     children: <Text size="sm">Are you sure you want to remove this folder?</Text>,
-    labels: { confirm: 'Delete folder', cancel: "No, don't delete it" },
+    labels: { confirm: 'Remove', cancel: "No, don't remove it" },
     cancelProps: { leftIcon: <ResetIcon /> },
-    confirmProps: { color: 'red', leftIcon: <TrashIcon /> },
+    confirmProps: { color: 'red', leftIcon: <XIcon /> },
     onConfirm,
   });
 
