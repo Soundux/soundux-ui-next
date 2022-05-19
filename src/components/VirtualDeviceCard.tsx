@@ -20,6 +20,7 @@ import FastAverageColor from 'fast-average-color';
 import { useEffect, useState } from 'react';
 import { VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
+import { IconMicrophone } from '@tabler/icons';
 import { availableMicrophonesAtom, playbackApplicationsAtom } from '../store';
 
 const ItemComponent: CheckboxListItemComponent = ({
@@ -32,24 +33,7 @@ const ItemComponent: CheckboxListItemComponent = ({
         <Avatar src={`data:image/png;base64,${data.icon}`} size="sm" />
       ) : (
         <ThemeIcon radius="xl">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-microphone"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="#fff"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <rect x="9" y="2" width="6" height="11" rx="3" />
-            <path d="M5 10a7 7 0 0 0 14 0" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="17" x2="12" y2="21" />
-          </svg>
+          <IconMicrophone />
         </ThemeIcon>
       )}
       <div style={{ flex: 1 }}>
