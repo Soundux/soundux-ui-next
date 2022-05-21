@@ -20,22 +20,32 @@ import FastAverageColor from 'fast-average-color';
 import { useEffect, useState } from 'react';
 import { VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
-import { IconMicrophone } from '@tabler/icons';
-import { availableMicrophonesAtom, playbackApplicationsAtom } from '../store';
+import { IconMicrophone, IconQuestionMark, IconVolume } from '@tabler/icons';
+import { availableMicrophonesAtom, playbackApplicationsAtom, playbackDevicesAtom } from '../store';
 
 const ItemComponent: CheckboxListItemComponent = ({
   data,
   selected,
 }: CheckboxListItemComponentProps) => {
+  const icon = (() => {
+    switch (data.type) {
+      case ConnectorType.MIC:
+        return <IconMicrophone />;
+      case ConnectorType.SPEAKER:
+        return <IconVolume />;
+      case ConnectorType.APP: {
+        if (data.icon) {
+          return <Avatar src={`data:image/png;base64,${data.icon}`} size="sm" />;
+        } else {
+          return <IconQuestionMark />;
+        }
+      }
+    }
+  })();
+
   return (
     <Group noWrap>
-      {data.icon ? (
-        <Avatar src={`data:image/png;base64,${data.icon}`} size="sm" />
-      ) : (
-        <ThemeIcon radius="xl">
-          <IconMicrophone />
-        </ThemeIcon>
-      )}
+      {icon}
       <div style={{ flex: 1 }}>
         <Text size="sm" weight={500} color={data.color ?? '#fff'}>
           {data.label}
@@ -54,26 +64,47 @@ interface VirtualDeviceCardProps {
   onDelete: (virtualDevice: VirtualDevice) => void;
 }
 
+const enum ConnectorType {
+  MIC,
+  SPEAKER,
+  APP,
+}
+
+interface Connector extends TransferListItem {
+  type: ConnectorType;
+  icon?: string;
+  color?: string;
+}
+
 function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) {
   const [availableMicrophones] = useAtom(availableMicrophonesAtom);
+  const [playbackDevices] = useAtom(playbackDevicesAtom);
   const [applications] = useAtom(playbackApplicationsAtom);
 
-  const [connectors, setConnectors] = useState<TransferListItem[]>([]);
+  const [connectors, setConnectors] = useState<Connector[]>([]);
 
   useEffect(() => {
     (async function fetchData() {
-      // Devices can be connected to all microphones and applications
-      const cons: TransferListItem[] = availableMicrophones
-        .map(microphone => ({
-          group: 'Microphones',
-          ...microphone,
-        }))
-        .concat(
-          applications.map(application => ({
-            group: 'Applications',
-            ...application,
-          }))
-        );
+      const mics: Connector[] = availableMicrophones.map(microphone => ({
+        group: 'Microphones',
+        ...microphone,
+        type: ConnectorType.MIC,
+      }));
+
+      const speakers: Connector[] = playbackDevices.map(device => ({
+        group: 'Playback Devices',
+        ...device,
+        type: ConnectorType.SPEAKER,
+      }));
+
+      const apps: Connector[] = applications.map(application => ({
+        group: 'Applications',
+        ...application,
+        type: ConnectorType.APP,
+      }));
+
+      // Devices can be connected to microphones, speakers and applications
+      const cons: Connector[] = [...apps, ...mics, ...speakers];
 
       for (const data of cons) {
         if (data.icon) {
@@ -83,7 +114,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
       }
       setConnectors(cons);
     })();
-  }, [availableMicrophones, applications]);
+  }, [availableMicrophones, playbackDevices, applications]);
 
   // TODO: make these two reactive from the original object!
   const [volume, setVolume] = useState(virtualDevice.volume);
