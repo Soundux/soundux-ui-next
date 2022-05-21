@@ -3,8 +3,8 @@ import {
   HeartIcon,
   KebabHorizontalIcon,
   PencilIcon,
+  TrashIcon,
   UnmuteIcon,
-  XCircleFillIcon,
 } from '@primer/octicons-react';
 import { Sound } from '../../types';
 import { useModals } from '@mantine/modals';
@@ -88,7 +88,7 @@ function ListView() {
                   <HeartIcon />
                 </ActionIcon>
                 <ActionIcon variant="transparent" size="xs" onClick={() => removeSound(sound)}>
-                  <XCircleFillIcon />
+                  <TrashIcon />
                 </ActionIcon>
               </Group>
             </Group>
