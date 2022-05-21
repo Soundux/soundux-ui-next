@@ -1,7 +1,7 @@
 import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine/core';
 import {
   advancedModeSetting,
-  autostartSetting,
+  ignoreWarningsSetting,
   deleteToTrashSetting,
   disableAnalyticsSetting,
   hotkeysOnlyCurrentTabSetting,
@@ -24,7 +24,7 @@ function TabOther() {
   const [hotkeysOnlyCurrentTab, setHotkeysOnlyCurrentTab] = useAtom(hotkeysOnlyCurrentTabSetting);
   const [disableAnalytics, setDisableAnalytics] = useAtom(disableAnalyticsSetting);
   const [topmost, setTopmost] = useAtom(topmostSetting);
-  const [autostart, setAutostart] = useAtom(autostartSetting);
+  const [ignoreWarnings, setIgnoreWarnings] = useAtom(ignoreWarningsSetting);
   const [advancedMode, setAdvancedMode] = useAtom(advancedModeSetting);
   const [language, setLanguage] = useAtom(languageSetting);
 
@@ -67,9 +67,9 @@ function TabOther() {
           size="md"
         />
         <Switch
-          checked={autostart}
-          onChange={event => setAutostart(event.target.checked)}
-          label="Autostart"
+          checked={ignoreWarnings}
+          onChange={event => setIgnoreWarnings(event.target.checked)}
+          label="Ignore warnings"
           size="md"
         />
         <Switch
