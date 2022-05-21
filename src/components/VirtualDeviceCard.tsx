@@ -23,6 +23,7 @@ import { VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
 import { IconMicrophone, IconQuestionMark, IconVolume } from '@tabler/icons';
 import { availableMicrophonesAtom, playbackApplicationsAtom, playbackDevicesAtom } from '../store';
+import ReactiveVolumeIcon from './ReactiveVolumeIcon';
 
 const ItemComponent: CheckboxListItemComponent = ({
   data,
@@ -127,7 +128,14 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
         <Text weight={600} inline>
           {virtualDevice.name}
         </Text>
-        <InputWrapper label="Volume" sx={{ width: '100%' }}>
+        <InputWrapper
+          label={
+            <Group spacing={5}>
+              <ReactiveVolumeIcon volume={volume} /> Volume
+            </Group>
+          }
+          sx={{ width: '100%' }}
+        >
           <Slider label={value => `${value}%`} value={volume} onChange={setVolume} />
         </InputWrapper>
         <CheckboxList
