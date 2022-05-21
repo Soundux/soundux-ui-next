@@ -15,7 +15,7 @@ import CheckboxList, {
   CheckboxListItemComponent,
   CheckboxListItemComponentProps,
 } from './input/CheckboxList';
-import { XIcon } from '@primer/octicons-react';
+import { TrashIcon } from '@primer/octicons-react';
 import FastAverageColor from 'fast-average-color';
 import { useEffect, useState } from 'react';
 import { VirtualDevice } from '../types';
@@ -108,10 +108,10 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
           itemComponent={ItemComponent}
           style={{ width: '100%', flexGrow: 1 }}
         />
-        <Tooltip label="Remove this virtual device" withArrow>
+        <Tooltip label="Delete this virtual device" withArrow>
           <UnstyledButton onClick={() => onDelete(virtualDevice)} sx={{ alignSelf: 'center' }}>
             <ThemeIcon variant="filled" color="red" radius="lg" size="lg">
-              <XIcon />
+              <TrashIcon />
             </ThemeIcon>
           </UnstyledButton>
         </Tooltip>

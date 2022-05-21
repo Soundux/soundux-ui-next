@@ -2,7 +2,7 @@ import { Group, Tooltip, UnstyledButton } from '@mantine/core';
 import AddDeviceIcon from '../assets/AddDeviceIcon';
 import { VirtualDevice } from '../types';
 import VirtualDeviceCard from '../components/VirtualDeviceCard';
-import { openVirtualDeviceCreationModal, openVirtualDeviceRemoveModal } from '../modals';
+import { openVirtualDeviceCreationModal, openVirtualDeviceDeleteModal } from '../modals';
 import { useModals } from '@mantine/modals';
 import { useAtom } from 'jotai';
 import { virtualDevicesAtom } from '../store';
@@ -27,7 +27,7 @@ function VirtualDevices() {
   }
 
   function deleteDevice(virtualDevice: VirtualDevice) {
-    openVirtualDeviceRemoveModal(modals, virtualDevice, () => {
+    openVirtualDeviceDeleteModal(modals, virtualDevice, () => {
       setVirtualDevices(virtualDevices.filter(device => device.id !== virtualDevice.id));
     });
   }

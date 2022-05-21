@@ -56,7 +56,7 @@ export const openFolderRemoveModal = (ctx: ModalsContextProps, folder: Folder, o
     onConfirm,
   });
 
-export const openVirtualDeviceRemoveModal = (
+export const openVirtualDeviceDeleteModal = (
   ctx: ModalsContextProps,
   virtualDevice: VirtualDevice,
   onConfirm: () => void
@@ -64,7 +64,7 @@ export const openVirtualDeviceRemoveModal = (
   ctx.openConfirmModal({
     title: (
       <Text>
-        Remove{' '}
+        Delete{' '}
         <Text component="span" weight="bold">
           {virtualDevice.name}
         </Text>
@@ -72,10 +72,10 @@ export const openVirtualDeviceRemoveModal = (
     ),
     centered: true,
     withCloseButton: false,
-    children: <Text size="sm">Are you sure you want to remove this virtual device?</Text>,
-    labels: { confirm: 'Remove', cancel: "No, don't remove it" },
+    children: <Text size="sm">Are you sure you want to delete this virtual device?</Text>,
+    labels: { confirm: 'Delete', cancel: "No, don't delete it" },
     cancelProps: { leftIcon: <ResetIcon /> },
-    confirmProps: { color: 'red', leftIcon: <XIcon /> },
+    confirmProps: { color: 'red', leftIcon: <TrashIcon /> },
     onConfirm,
   });
 
