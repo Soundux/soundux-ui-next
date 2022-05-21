@@ -4,6 +4,7 @@ import {
   Checkbox,
   Group,
   InputWrapper,
+  Loader,
   Slider,
   Text,
   ThemeIcon,
@@ -134,7 +135,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
           selection={connectedTo}
           onChange={setConnectedTo}
           searchPlaceholder="Search..."
-          nothingFound="Nothing here"
+          nothingFound={<Loader />} // connectors should never be empty
           title="Connect to"
           itemComponent={ItemComponent}
           style={{ width: '100%', flexGrow: 1 }}
