@@ -16,6 +16,12 @@ export interface Folder {
   sounds: Sound[];
 }
 
+export interface Application {
+  value: string;
+  label: string;
+  icon?: string;
+}
+
 export interface Device {
   value: string;
   label: string;

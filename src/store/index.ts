@@ -1,6 +1,5 @@
-import { Device, Folder, VirtualDevice } from '../types';
+import { Application, Device, Folder, VirtualDevice } from '../types';
 import { atom } from 'jotai';
-import { TransferListItem } from '@mantine/core';
 
 const folders: Folder[] = new Array(20).fill(0).map((_, i) => ({
   id: i,
@@ -58,7 +57,7 @@ export const virtualDevicesAtom = atom<VirtualDevice[]>([
   },
 ]);
 
-const playbackApplications: TransferListItem[] = [
+const playbackApplications: Application[] = [
   {
     value: 'firefox',
     label: 'Firefox',
