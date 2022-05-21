@@ -1,11 +1,11 @@
-import { Group, Tooltip, UnstyledButton } from '@mantine/core';
-import AddDeviceIcon from '../assets/AddDeviceIcon';
+import { Button, Group } from '@mantine/core';
 import { VirtualDevice } from '../types';
 import VirtualDeviceCard from '../components/VirtualDeviceCard';
 import { openVirtualDeviceCreationModal, openVirtualDeviceDeleteModal } from '../modals';
 import { useModals } from '@mantine/modals';
 import { useAtom } from 'jotai';
 import { virtualDevicesAtom } from '../store';
+import { IconPlus } from '@tabler/icons';
 
 function VirtualDevices() {
   const modals = useModals();
@@ -47,11 +47,15 @@ function VirtualDevices() {
           onDelete={deleteDevice}
         />
       ))}
-      <Tooltip label="Add a new virtual device" withArrow sx={{ marginLeft: '90px' }}>
-        <UnstyledButton onClick={addDevice}>
-          <AddDeviceIcon style={{ width: '97px' }} />
-        </UnstyledButton>
-      </Tooltip>
+      <Button
+        onClick={addDevice}
+        sx={{ marginLeft: '50px' }}
+        variant="outline"
+        color="green"
+        leftIcon={<IconPlus size={18} />}
+      >
+        Add a new virtual device
+      </Button>
     </Group>
   );
 }
