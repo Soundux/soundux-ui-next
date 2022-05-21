@@ -36,5 +36,7 @@ module.exports = {
     'prettier/prettier': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    'react/self-closing-comp': 'error',
+    'react/jsx-closing-tag-location': 'error',
   },
 };
