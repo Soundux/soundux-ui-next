@@ -29,7 +29,7 @@ function TabOther() {
   const [language, setLanguage] = useAtom(languageSetting);
 
   return (
-    <Card p="lg" radius="lg">
+    <Card p="xl" radius="lg">
       <Text mb="md" weight={500}>
         Other
       </Text>

@@ -20,7 +20,7 @@ function TabSounds() {
   const [volumeNormalization, setVolumeNormalization] = useAtom(volumeNormalizationSetting);
 
   return (
-    <Card p="lg" radius="lg">
+    <Card p="xl" radius="lg">
       <Text mb="md" weight={500}>
         Sounds
       </Text>

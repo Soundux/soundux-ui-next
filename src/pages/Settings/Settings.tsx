@@ -14,12 +14,7 @@ function Settings() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <Group
-      position="center"
-      sx={{
-        height: 'calc(100vh - 92px)',
-      }}
-    >
+    <Group position="center">
       <StyledTabs
         active={activeTab}
         onTabChange={setActiveTab}

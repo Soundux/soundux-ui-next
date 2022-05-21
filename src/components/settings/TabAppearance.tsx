@@ -38,7 +38,7 @@ function TabAppearance() {
   const [selectedCustomColor, setSelectedCustomColor] = useState<string>('#ffff');
 
   return (
-    <Card p="lg" radius="lg">
+    <Card p="xl" radius="lg">
       <Text mb="md" weight={500}>
         Appearance
       </Text>
