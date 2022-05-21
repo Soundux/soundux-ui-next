@@ -8,6 +8,10 @@ export const allowSoundOverlappingSetting = atom(false);
 export const muteDuringPlaybackSetting = atom(false);
 export const volumeNormalizationSetting = atom(false);
 
+// appearance
+export const enableTransparencySetting = atom(false);
+export const transparencySetting = atom(50);
+
 // other
 export const deleteToTrashSetting = atom(false);
 export const minimizeToTraySetting = atom(false);
