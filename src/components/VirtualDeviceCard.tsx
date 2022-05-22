@@ -143,7 +143,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
           selection={connectedTo}
           onChange={setConnectedTo}
           searchPlaceholder="Search..."
-          nothingFound={<Loader />} // connectors should never be empty
+          nothingFound={connectors.length ? 'Nothing found' : <Loader />} // connectors should never be empty
           title="Connect to"
           itemComponent={ItemComponent}
           style={{ width: '100%', flexGrow: 1 }}
