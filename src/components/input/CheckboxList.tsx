@@ -62,8 +62,6 @@ function CheckboxList({
     { ITEM_PADDING: itemPadding },
     { name: 'CheckboxList', classNames, styles }
   );
-  const items: React.ReactElement[] = [];
-
   const unGroupedItems: React.ReactElement[] = [];
   const groupedItems: React.ReactElement[] = [];
 
