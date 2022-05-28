@@ -9,7 +9,6 @@ import {
   Text,
   ThemeIcon,
   Tooltip,
-  TransferListItem,
   UnstyledButton,
 } from '@mantine/core';
 import CheckboxList, {
@@ -19,7 +18,7 @@ import CheckboxList, {
 import { TrashIcon } from '@primer/octicons-react';
 import FastAverageColor from 'fast-average-color';
 import { useEffect, useState } from 'react';
-import { VirtualDevice } from '../types';
+import { Connector, ConnectorType, VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
 import { IconMicrophone, IconQuestionMark } from '@tabler/icons';
 import { availableMicrophonesAtom, playbackApplicationsAtom } from '../store';
@@ -62,17 +61,6 @@ const ItemComponent: CheckboxListItemComponent = ({
 interface VirtualDeviceCardProps {
   virtualDevice: VirtualDevice;
   onDelete: (virtualDevice: VirtualDevice) => void;
-}
-
-const enum ConnectorType {
-  MIC,
-  APP,
-}
-
-interface Connector extends TransferListItem {
-  type: ConnectorType;
-  icon?: string;
-  color?: string;
 }
 
 function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) {

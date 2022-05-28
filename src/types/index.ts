@@ -1,4 +1,4 @@
-import { MantineColor } from '@mantine/core';
+import { MantineColor, TransferListItem } from '@mantine/core';
 import { CheckboxListItem } from '../components/input/CheckboxList';
 
 export interface Sound {
@@ -25,6 +25,17 @@ export interface Application {
 export interface Device {
   value: string;
   label: string;
+}
+
+export const enum ConnectorType {
+  MIC,
+  APP,
+}
+
+export interface Connector extends TransferListItem {
+  type: ConnectorType;
+  icon?: string;
+  color?: string;
 }
 
 export interface VirtualDevice {
