@@ -22,7 +22,7 @@ import { useEffect, useState } from 'react';
 import { VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
 import { IconMicrophone, IconQuestionMark } from '@tabler/icons';
-import { availableMicrophonesAtom, playbackApplicationsAtom, playbackDevicesAtom } from '../store';
+import { availableMicrophonesAtom, playbackApplicationsAtom } from '../store';
 import ReactiveVolumeIcon from './ReactiveVolumeIcon';
 
 const ItemComponent: CheckboxListItemComponent = ({
@@ -77,7 +77,6 @@ interface Connector extends TransferListItem {
 
 function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) {
   const [availableMicrophones] = useAtom(availableMicrophonesAtom);
-  const [playbackDevices] = useAtom(playbackDevicesAtom);
   const [applications] = useAtom(playbackApplicationsAtom);
 
   const [connectors, setConnectors] = useState<Connector[]>([]);
@@ -107,7 +106,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
       }
       setConnectors(cons);
     })();
-  }, [availableMicrophones, playbackDevices, applications]);
+  }, [availableMicrophones, applications]);
 
   const [volume, setVolume] = useState(virtualDevice.volume);
   const [connectedTo, setConnectedTo] = useState(virtualDevice.connectedTo);
