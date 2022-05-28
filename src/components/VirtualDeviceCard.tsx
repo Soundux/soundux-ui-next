@@ -109,7 +109,6 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
     })();
   }, [availableMicrophones, playbackDevices, applications]);
 
-  // TODO: make these two reactive from the original object!
   const [volume, setVolume] = useState(virtualDevice.volume);
   const [connectedTo, setConnectedTo] = useState(virtualDevice.connectedTo);
 
@@ -127,12 +126,22 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
           }
           sx={{ width: '100%' }}
         >
-          <Slider label={value => `${value}%`} value={volume} onChange={setVolume} />
+          <Slider
+            label={value => `${value}%`}
+            value={volume}
+            onChange={value => {
+              setVolume(value);
+              virtualDevice.volume = value;
+            }}
+          />
         </InputWrapper>
         <CheckboxList
           data={connectors}
           selection={connectedTo}
-          onChange={setConnectedTo}
+          onChange={value => {
+            setConnectedTo(value);
+            virtualDevice.connectedTo = value;
+          }}
           searchPlaceholder="Search..."
           nothingFound={connectors.length ? 'Nothing found' : <Loader />} // connectors should never be empty
           title="Connect to"
