@@ -2,7 +2,6 @@ import { atom } from 'jotai';
 
 // sounds
 export const localPlaybackDeviceSetting = atom<string[]>([]);
-export const remotePlaybackDeviceSetting = atom<string[]>([]);
 
 export const allowSoundOverlappingSetting = atom(false);
 export const muteDuringPlaybackSetting = atom(false);

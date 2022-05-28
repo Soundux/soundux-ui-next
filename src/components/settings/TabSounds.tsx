@@ -3,18 +3,15 @@ import { useAtom } from 'jotai';
 import {
   allowSoundOverlappingSetting,
   localPlaybackDeviceSetting,
-  remotePlaybackDeviceSetting,
   muteDuringPlaybackSetting,
   volumeNormalizationSetting,
 } from '../../store/settings';
-import { availableMicrophonesAtom, playbackDevicesAtom } from '../../store';
+import { playbackDevicesAtom } from '../../store';
 
 function TabSounds() {
   const [playbackDevices] = useAtom(playbackDevicesAtom);
-  const [availableMicrophones] = useAtom(availableMicrophonesAtom);
 
   const [localPlaybackDevice, setLocalPlaybackDevice] = useAtom(localPlaybackDeviceSetting);
-  const [remotePlaybackDevice, setRemotePlaybackDevice] = useAtom(remotePlaybackDeviceSetting);
   const [allowSoundOverlapping, setAllowSoundOverlapping] = useAtom(allowSoundOverlappingSetting);
   const [muteDuringPlayback, setMuteDuringPlayback] = useAtom(muteDuringPlaybackSetting);
   const [volumeNormalization, setVolumeNormalization] = useAtom(volumeNormalizationSetting);
@@ -33,13 +30,6 @@ function TabSounds() {
           onChange={setLocalPlaybackDevice}
           label="Local Playback Device"
           placeholder="Choose your speakers"
-        />
-        <MultiSelect
-          data={availableMicrophones}
-          value={remotePlaybackDevice}
-          onChange={setRemotePlaybackDevice}
-          label="Microphone"
-          placeholder="Choose your microphones"
         />
         <Switch
           checked={allowSoundOverlapping}

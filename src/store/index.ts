@@ -51,9 +51,10 @@ export const availableMicrophonesAtom = atom(availableMicrophones);
 export const virtualDevicesAtom = atom<VirtualDevice[]>([
   {
     id: 0,
-    name: 'Virtual Device 1',
-    volume: 50,
-    connectedTo: [availableMicrophones[0], availableMicrophones[2]],
+    name: 'Soundux Microphone',
+    volume: 100,
+    deletable: false,
+    connectedTo: [availableMicrophones[0]],
   },
 ]);
 

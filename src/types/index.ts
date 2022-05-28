@@ -31,5 +31,6 @@ export interface VirtualDevice {
   id: number;
   name: string;
   volume: number;
+  deletable: boolean;
   connectedTo: CheckboxListItem[];
 }

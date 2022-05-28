@@ -21,7 +21,7 @@ import FastAverageColor from 'fast-average-color';
 import { useEffect, useState } from 'react';
 import { VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
-import { IconMicrophone, IconQuestionMark, IconVolume } from '@tabler/icons';
+import { IconMicrophone, IconQuestionMark } from '@tabler/icons';
 import { availableMicrophonesAtom, playbackApplicationsAtom, playbackDevicesAtom } from '../store';
 import ReactiveVolumeIcon from './ReactiveVolumeIcon';
 
@@ -33,8 +33,6 @@ const ItemComponent: CheckboxListItemComponent = ({
     switch (data.type) {
       case ConnectorType.MIC:
         return <IconMicrophone />;
-      case ConnectorType.SPEAKER:
-        return <IconVolume />;
       case ConnectorType.APP: {
         if (data.icon) {
           return <Avatar src={`data:image/png;base64,${data.icon}`} size="sm" />;
@@ -68,7 +66,6 @@ interface VirtualDeviceCardProps {
 
 const enum ConnectorType {
   MIC,
-  SPEAKER,
   APP,
 }
 
@@ -93,20 +90,14 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
         type: ConnectorType.MIC,
       }));
 
-      const speakers: Connector[] = playbackDevices.map(device => ({
-        group: 'Playback Devices',
-        ...device,
-        type: ConnectorType.SPEAKER,
-      }));
-
       const apps: Connector[] = applications.map(application => ({
         group: 'Applications',
         ...application,
         type: ConnectorType.APP,
       }));
 
-      // Devices can be connected to microphones, speakers and applications
-      const cons: Connector[] = [...apps, ...mics, ...speakers];
+      // Devices can be connected to microphones and applications
+      const cons: Connector[] = [...apps, ...mics];
 
       for (const data of cons) {
         if (data.icon) {
@@ -148,13 +139,15 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
           itemComponent={ItemComponent}
           style={{ width: '100%', flexGrow: 1 }}
         />
-        <Tooltip label="Delete this virtual device" withArrow>
-          <UnstyledButton onClick={() => onDelete(virtualDevice)} sx={{ alignSelf: 'center' }}>
-            <ThemeIcon variant="filled" color="red" radius="lg" size="lg">
-              <TrashIcon />
-            </ThemeIcon>
-          </UnstyledButton>
-        </Tooltip>
+        {virtualDevice.deletable && (
+          <Tooltip label="Delete this virtual device" withArrow>
+            <UnstyledButton onClick={() => onDelete(virtualDevice)} sx={{ alignSelf: 'center' }}>
+              <ThemeIcon variant="filled" color="red" radius="lg" size="lg">
+                <TrashIcon />
+              </ThemeIcon>
+            </UnstyledButton>
+          </Tooltip>
+        )}
       </Group>
     </Card>
   );

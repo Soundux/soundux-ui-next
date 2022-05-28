@@ -20,6 +20,7 @@ function VirtualDevices() {
           id: current.length ? current[current.length - 1].id + 1 : 0,
           name,
           volume: 50,
+          deletable: true,
           connectedTo: [],
         },
       ]);
