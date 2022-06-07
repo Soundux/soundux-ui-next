@@ -20,7 +20,7 @@
     "@mantine/hooks": "^4.2.6",
     "@mantine/modals": "^4.2.6",
     "@mantine/notifications": "^4.2.6",
-    "@primer/octicons-react": "^17.2.0",
+    "@primer/octicons-react": "^17.3.0",
     "@radix-ui/react-icons": "^1.1.1",
     "@tabler/icons": "^1.68.0",
     "fast-average-color": "^7.1.0",
