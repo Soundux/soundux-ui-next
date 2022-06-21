@@ -16,7 +16,7 @@ import CheckboxList, {
   CheckboxListItemComponentProps,
 } from './input/CheckboxList';
 import { TrashIcon } from '@primer/octicons-react';
-import FastAverageColor from 'fast-average-color';
+import { FastAverageColor } from 'fast-average-color';
 import { useEffect, useState } from 'react';
 import { Connector, ConnectorType, VirtualDevice } from '../types';
 import { useAtom } from 'jotai';
