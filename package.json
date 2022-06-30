@@ -24,7 +24,7 @@
     "@radix-ui/react-icons": "^1.1.1",
     "@tabler/icons": "^1.71.0",
     "fast-average-color": "^8.0.0",
-    "jotai": "^1.7.2",
+    "jotai": "^1.7.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
