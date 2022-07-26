@@ -661,10 +661,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@tabler/icons@^1.74.0":
-  version "1.74.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.74.0.tgz#21c3295a43d8e7f0d64b72fca7aaed8480b5ee80"
-  integrity sha512-kzoA8YTogdn6CBY4C0eopOZxAsWsSAQouHdydNhr6nFj4LZXHIStYGSt0R9B05fHSBVMic0d6ZRbpKuxMFqsWQ==
+"@tabler/icons@^1.78.1":
+  version "1.78.1"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.78.1.tgz#7577c1b22c736cec43718e512c89b4452c926e99"
+  integrity sha512-QT/94Hufvzn4PxsEyN9NTh96XmNaGGgMh7sKcBZ2216pE9B+Ala98KpdNwTKKBlEvRvHw9y14zW4qFYzxGOhZw==
 
 "@types/json-schema@^7.0.9":
   version "7.0.9"
