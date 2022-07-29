@@ -1,8 +1,9 @@
-import { ButtonProps } from '@mantine/core';
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { ButtonProps, createPolymorphicComponent } from '@mantine/core';
+import { Link, LinkProps, useMatch, useResolvedPath } from 'react-router-dom';
 import CompactButton from './CompactButton';
+import { forwardRef } from 'react';
 
-function NavigationButton(props: Omit<ButtonProps<typeof Link>, 'component'>) {
+const _Button = forwardRef<HTMLAnchorElement, ButtonProps & LinkProps>(({ children, ...props }, ref) => {
   const resolved = useResolvedPath(props.to);
   const match = useMatch({ path: resolved.pathname, end: true });
 
@@ -11,11 +12,16 @@ function NavigationButton(props: Omit<ButtonProps<typeof Link>, 'component'>) {
       component={Link}
       variant={match ? 'gradient' : 'default'}
       gradient={{ from: 'accent', to: 'accent2', deg: 180 }}
+      ref={ref}
       {...props}
     >
-      {props.children}
+      {children}
     </CompactButton>
   );
-}
+});
+
+_Button.displayName = 'NavigationButton';
+
+const NavigationButton = createPolymorphicComponent<'a', ButtonProps & LinkProps>(_Button);
 
 export default NavigationButton;

@@ -1,11 +1,5 @@
-import {
-  Button,
-  ButtonProps,
-  createStyles,
-  PolymorphicComponentProps,
-  SharedButtonProps,
-} from '@mantine/core';
-import { forwardRef, ReactElement, ReactNode } from 'react';
+import { forwardRef } from 'react';
+import { Button, ButtonProps, createPolymorphicComponent, createStyles } from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   label: {
@@ -13,22 +7,18 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-type CompactButtonComponent = (<C = 'button'>(
-  props: PolymorphicComponentProps<C, SharedButtonProps & { children: ReactNode }>
-) => ReactElement) & {
-  displayName?: string;
-};
-
-const CompactButton: CompactButtonComponent = forwardRef((props: ButtonProps<'button'>, ref: any) => {
+const _Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, ...props }, ref) => {
   const { classes } = useStyles();
 
   return (
     <Button compact variant="default" radius="md" ref={ref} classNames={classes} {...props}>
-      {props.children}
+      {children}
     </Button>
   );
-}) as any;
+});
 
-CompactButton.displayName = 'CompactButton';
+_Button.displayName = 'CompactButton';
+
+const CompactButton = createPolymorphicComponent<'button', ButtonProps>(_Button);
 
 export default CompactButton;
