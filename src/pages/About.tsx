@@ -1,4 +1,4 @@
-import { Card, Center, Group, Text } from '@mantine/core';
+import { Card, Center, Group, Stack, Text } from '@mantine/core';
 import GradientButton from '../components/input/GradientButton';
 import { HeartIcon, HomeIcon, InfoIcon, LawIcon } from '@primer/octicons-react';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
@@ -12,13 +12,13 @@ function About() {
         <Logo style={{ position: 'absolute', left: -45, top: 0 }} />
         <Group noWrap>
           <Logo style={{ visibility: 'hidden' }} />
-          <Group direction="column">
+          <Stack>
             <Text weight={600}>Soundux 3.0 &quot;Epsilon&quot; (Beta)</Text>
             <Text weight={300}>
               Soundux is a cross-platform soundboard that features a simple user interface. With Soundux
               you can play audio to a specific application on Linux and to your VB-CABLE sink on Windows.
             </Text>
-          </Group>
+          </Stack>
         </Group>
         <Group position="right">
           <GradientButton leftIcon={<InfoIcon />}>System Info</GradientButton>

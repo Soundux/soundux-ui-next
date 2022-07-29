@@ -1,4 +1,4 @@
-import { ActionIcon, Avatar, Badge, Group, Paper, Text } from '@mantine/core';
+import { ActionIcon, Avatar, Badge, Group, Paper, Stack, Text } from '@mantine/core';
 import {
   HeartIcon,
   KebabHorizontalIcon,
@@ -30,7 +30,7 @@ function ListView() {
   };
 
   return (
-    <Group spacing={7} direction="column" sx={{ width: '100%' }}>
+    <Stack spacing={7} sx={{ width: '100%' }}>
       {sounds &&
         sounds.map(sound => (
           <Paper p="md" shadow="xs" key={sound.id} sx={{ width: '100%' }}>
@@ -94,7 +94,7 @@ function ListView() {
             </Group>
           </Paper>
         ))}
-    </Group>
+    </Stack>
   );
 }
 

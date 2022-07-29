@@ -1,5 +1,5 @@
 import { CheckIcon, ChevronRightIcon, SkipIcon } from '@primer/octicons-react';
-import { Card, Divider, Group, Select, Text } from '@mantine/core';
+import { Card, Divider, Group, Select, Stack, Text } from '@mantine/core';
 import GradientButton from '../input/GradientButton';
 import { useState } from 'react';
 import { useAtom } from 'jotai';
@@ -19,7 +19,7 @@ function TabVBCable() {
         related manually, this tab is for you!
       </Text>
       <Divider my="lg" variant="dotted" />
-      <Group direction="column">
+      <Stack>
         <Text weight={500}>Current Configuration</Text>
         <Group>
           <Text size="sm">Default Microphone</Text>
@@ -28,7 +28,7 @@ function TabVBCable() {
             VB-CABLE
           </Text>
         </Group>
-      </Group>
+      </Stack>
       <Divider my="lg" variant="dotted" />
       <Select
         label="Primary Microphone"
@@ -38,10 +38,10 @@ function TabVBCable() {
         placeholder="Select a microphone"
         mb="lg"
       />
-      <Group spacing="xs" direction="column">
+      <Stack align="start" spacing="xs">
         <GradientButton leftIcon={<SkipIcon />}>Reset configuration</GradientButton>
         <GradientButton leftIcon={<CheckIcon />}>Configure automatically</GradientButton>
-      </Group>
+      </Stack>
     </Card>
   );
 }

@@ -1,4 +1,4 @@
-import { ActionIcon, Group, Paper, Slider, SliderProps, Text } from '@mantine/core';
+import { ActionIcon, Group, Paper, Slider, SliderProps, Stack, Text } from '@mantine/core';
 import { PauseIcon, PlayIcon } from '@radix-ui/react-icons';
 import { HeartIcon, IterationsIcon, MultiSelectIcon, SyncIcon } from '@primer/octicons-react';
 import { useHover } from '@mantine/hooks';
@@ -57,15 +57,15 @@ function BottomBar() {
       >
         <Group position="apart" noWrap>
           <Group noWrap>
-            <Group direction="column" align="start" noWrap spacing={0}>
+            <Stack align="start" spacing={0}>
               <Text>Sound 1.mp3</Text>
               <Text>Sounds_1</Text>
-            </Group>
+            </Stack>
             <ActionIcon variant="transparent">
               <HeartIcon />
             </ActionIcon>
           </Group>
-          <Group direction="column" align="center">
+          <Stack align="center">
             <Group>
               <ActionIcon variant="transparent" size="xs">
                 <IterationsIcon />
@@ -88,12 +88,12 @@ function BottomBar() {
               <StyledSlider defaultValue={50} sx={{ width: '500px' }} />
               <Text>X:XX</Text>
             </Group>
-          </Group>
+          </Stack>
           <Group noWrap>
             <ActionIcon variant="transparent" size="xs">
               <MultiSelectIcon />
             </ActionIcon>
-            <Group direction="column">
+            <Stack>
               <Group noWrap>
                 <ReactiveVolumeIcon volume={localVolume} />
                 <StyledSlider
@@ -112,7 +112,7 @@ function BottomBar() {
                   sx={{ width: '200px' }}
                 />
               </Group>
-            </Group>
+            </Stack>
           </Group>
         </Group>
       </Paper>

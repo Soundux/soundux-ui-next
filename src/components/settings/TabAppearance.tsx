@@ -10,6 +10,7 @@ import {
   Radio,
   RadioGroup,
   Slider,
+  Stack,
   Switch,
   Text,
   TransferList,
@@ -44,7 +45,7 @@ function TabAppearance() {
       </Text>
       <Text size="sm">Personalize your appearance</Text>
       <Divider my="lg" variant="dotted" />
-      <Group direction="column">
+      <Stack align="start">
         <Switch
           checked={useTransparency}
           onChange={event => setUseTransparency(event.target.checked)}
@@ -131,7 +132,7 @@ function TabAppearance() {
           sx={{ width: '100%' }}
         />
         <GradientButton leftIcon={<FileDirectoryIcon />}>Open Custom CSS Folder</GradientButton>
-      </Group>
+      </Stack>
     </Card>
   );
 }

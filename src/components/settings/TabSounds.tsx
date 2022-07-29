@@ -1,4 +1,4 @@
-import { Card, Divider, Group, MultiSelect, Switch, Text } from '@mantine/core';
+import { Card, Divider, MultiSelect, Stack, Switch, Text } from '@mantine/core';
 import { useAtom } from 'jotai';
 import {
   allowSoundOverlappingSetting,
@@ -23,7 +23,7 @@ function TabSounds() {
       </Text>
       <Text size="sm">Settings related to sound playback</Text>
       <Divider my="lg" variant="dotted" />
-      <Group direction="column" grow>
+      <Stack>
         <MultiSelect
           data={playbackDevices}
           value={localPlaybackDevice}
@@ -49,7 +49,7 @@ function TabSounds() {
           label="Volume normalization (Experimental)"
           size="md"
         />
-      </Group>
+      </Stack>
     </Card>
   );
 }

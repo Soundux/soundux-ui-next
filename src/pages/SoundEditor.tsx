@@ -1,4 +1,15 @@
-import { Button, Card, Center, Divider, Group, Paper, Select, SelectItem, Text } from '@mantine/core';
+import {
+  Button,
+  Card,
+  Center,
+  Divider,
+  Group,
+  Paper,
+  Select,
+  SelectItem,
+  Stack,
+  Text,
+} from '@mantine/core';
 import Wave from '../assets/wave.png';
 import { useState } from 'react';
 import { CheckIcon, CopyIcon, UnmuteIcon } from '@primer/octicons-react';
@@ -30,7 +41,7 @@ function SoundEditor() {
   return (
     <Center sx={{ height: 'calc(100vh - 92px)' }}>
       <Card p="lg" radius="lg" sx={{ height: '85%', width: '90%' }}>
-        <Group direction="column" spacing={0} align="stretch" noWrap sx={{ height: '100%' }}>
+        <Stack spacing={0} sx={{ height: '100%' }}>
           <Text mb="md" weight={500}>
             Sound
           </Text>
@@ -108,7 +119,7 @@ function SoundEditor() {
               <Text>No sound selected</Text>
             </Center>
           )}
-        </Group>
+        </Stack>
       </Card>
     </Center>
   );

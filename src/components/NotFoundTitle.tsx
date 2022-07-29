@@ -1,4 +1,4 @@
-import { createStyles, Title, Text, Group } from '@mantine/core';
+import { createStyles, Title, Text, Stack } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import GradientButton from './input/GradientButton';
 import { ArrowLeftIcon } from '@primer/octicons-react';
@@ -28,9 +28,8 @@ function NotFoundTitle() {
   const { classes } = useStyles();
 
   return (
-    <Group
-      position="center"
-      direction="column"
+    <Stack
+      align="center"
       style={{
         textAlign: 'center',
       }}
@@ -44,7 +43,7 @@ function NotFoundTitle() {
       <GradientButton size="md" leftIcon={<ArrowLeftIcon />} component={Link} to="/">
         Back to home page
       </GradientButton>
-    </Group>
+    </Stack>
   );
 }
 

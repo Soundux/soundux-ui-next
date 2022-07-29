@@ -1,4 +1,4 @@
-import { Card, Divider, Group, Select, SelectItem, Switch, Text } from '@mantine/core';
+import { Card, Divider, Select, SelectItem, Stack, Switch, Text } from '@mantine/core';
 import {
   advancedModeSetting,
   ignoreWarningsSetting,
@@ -35,7 +35,7 @@ function TabOther() {
       </Text>
       <Text size="sm">Miscellaneous settings</Text>
       <Divider my="lg" variant="dotted" />
-      <Group direction="column" grow>
+      <Stack>
         <Switch
           checked={deleteToTrash}
           onChange={event => setDeleteToTrash(event.target.checked)}
@@ -85,7 +85,7 @@ function TabOther() {
           value={language}
           onChange={(x: SupportedLanguage) => setLanguage(x)}
         />
-      </Group>
+      </Stack>
     </Card>
   );
 }

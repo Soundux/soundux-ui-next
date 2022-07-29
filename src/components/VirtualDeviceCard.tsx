@@ -6,6 +6,7 @@ import {
   InputWrapper,
   Loader,
   Slider,
+  Stack,
   Text,
   ThemeIcon,
   Tooltip,
@@ -101,7 +102,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
 
   return (
     <Card p="lg" radius="lg" sx={{ height: '77.5%', width: '290px' }}>
-      <Group direction="column" position="center" noWrap sx={{ height: '100%' }}>
+      <Stack align="center" sx={{ height: '100%' }}>
         <Text weight={600} inline>
           {virtualDevice.name}
         </Text>
@@ -144,7 +145,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
             </UnstyledButton>
           </Tooltip>
         )}
-      </Group>
+      </Stack>
     </Card>
   );
 }
