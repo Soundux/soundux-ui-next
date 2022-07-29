@@ -3,17 +3,27 @@ import { Tabs, TabsProps } from '@mantine/core';
 function StyledTabs(props: TabsProps) {
   return (
     <Tabs
-      variant="unstyled"
+      unstyled
       styles={theme => ({
-        tabControl: {
+        tab: {
+          ...theme.fn.focusStyles(),
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
           color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
           border: `1px solid ${
             theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]
           }`,
-          fontSize: theme.fontSizes.md,
-          padding: `${theme.spacing.xl}px`,
-          marginTop: `${theme.spacing.md}px`,
+          padding: `${theme.spacing.md}px`,
+          cursor: 'pointer',
+          fontSize: theme.fontSizes.sm,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexGrow: 1,
+
+          '&:disabled': {
+            opacity: 0.5,
+            cursor: 'not-allowed',
+          },
 
           '&:not(:first-of-type)': {
             borderLeft: 0,
@@ -28,27 +38,22 @@ function StyledTabs(props: TabsProps) {
             borderTopRightRadius: theme.radius.md,
             borderBottomRightRadius: theme.radius.md,
           },
+
+          '&[data-active]': {
+            backgroundColor: theme.colors.accent2[7],
+            borderColor: theme.colors.accent2[7],
+            color: theme.white,
+          },
+        },
+
+        tabIcon: {
+          marginRight: theme.spacing.xs,
+          display: 'flex',
+          alignItems: 'center',
         },
 
         tabsList: {
-          flexWrap: 'nowrap',
-        },
-
-        tabActive: {
-          backgroundColor: theme.colors.accent2[7],
-          borderColor: theme.colors.accent2[7],
-          color: theme.white,
-        },
-
-        root: {
           display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-        },
-
-        body: {
-          marginTop: 'auto',
-          marginBottom: 'auto',
         },
       })}
       {...props}
