@@ -30,6 +30,7 @@ function TabSounds() {
           onChange={setLocalPlaybackDevice}
           label="Local Playback Device"
           placeholder="Choose your speakers"
+          withinPortal
         />
         <Switch
           checked={allowSoundOverlapping}

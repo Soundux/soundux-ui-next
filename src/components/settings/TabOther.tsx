@@ -84,6 +84,7 @@ function TabOther() {
           data={languages}
           value={language}
           onChange={(x: SupportedLanguage) => setLanguage(x)}
+          withinPortal
         />
       </Stack>
     </Card>

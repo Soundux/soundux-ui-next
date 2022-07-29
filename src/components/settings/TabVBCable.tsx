@@ -37,6 +37,7 @@ function TabVBCable() {
         onChange={setPrimaryMicrophone}
         placeholder="Select a microphone"
         mb="lg"
+        withinPortal
       />
       <Stack align="start" spacing="xs">
         <GradientButton leftIcon={<SkipIcon />}>Reset configuration</GradientButton>
