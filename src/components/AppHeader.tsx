@@ -1,4 +1,4 @@
-import { ActionIcon, createStyles, Group, Header, Text } from '@mantine/core';
+import { ActionIcon, createStyles, Group, Header, Text, useMantineTheme } from '@mantine/core';
 import {
   ChevronRightIcon,
   CommentIcon,
@@ -28,6 +28,7 @@ const useStyles = createStyles(theme => ({
 }));
 
 function AppHeader() {
+  const theme = useMantineTheme();
   const { classes } = useStyles();
   const resolvedHome = useResolvedPath('/');
   const matchedHome = useMatch({ path: resolvedHome.pathname, end: true });
@@ -99,7 +100,7 @@ function AppHeader() {
           {matchedSettings && (
             <Group spacing="xs">
               <InfoIcon />
-              <Text color="gray">Settings changes are saved automatically</Text>
+              <Text color={theme.colors.gray[5]}>Settings changes are saved automatically</Text>
             </Group>
           )}
         </Group>
