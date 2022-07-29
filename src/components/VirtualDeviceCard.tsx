@@ -24,11 +24,14 @@ import { useAtom } from 'jotai';
 import { IconMicrophone, IconQuestionMark } from '@tabler/icons';
 import { availableMicrophonesAtom, playbackApplicationsAtom } from '../store';
 import ReactiveVolumeIcon from './ReactiveVolumeIcon';
+import { advancedModeSetting } from '../store/settings';
 
 const ItemComponent: CheckboxListItemComponent = ({
   data,
   selected,
 }: CheckboxListItemComponentProps) => {
+  const [advancedMode] = useAtom(advancedModeSetting);
+
   const icon = (() => {
     switch (data.type) {
       case ConnectorType.MIC:
@@ -50,9 +53,11 @@ const ItemComponent: CheckboxListItemComponent = ({
         <Text size="sm" weight={500} color={data.color ?? '#fff'}>
           {data.label}
         </Text>
-        <Text size="xs" color="dimmed" weight={400}>
-          {data.value}
-        </Text>
+        {advancedMode && (
+          <Text size="xs" color="dimmed" weight={400}>
+            {data.value}
+          </Text>
+        )}
       </div>
       <Checkbox checked={selected} onChange={() => {}} tabIndex={-1} sx={{ pointerEvents: 'none' }} />
     </Group>
