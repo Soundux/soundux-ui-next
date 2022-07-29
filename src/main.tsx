@@ -10,8 +10,7 @@ import '@fontsource/open-sans/700.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
