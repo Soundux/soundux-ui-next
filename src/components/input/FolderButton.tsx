@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import {
+  createPolymorphicComponent,
   createStyles,
   Group,
   Text,
@@ -8,7 +9,7 @@ import {
   UnstyledButtonProps,
 } from '@mantine/core';
 
-interface MainLinkProps extends UnstyledButtonProps<'button'> {
+interface MainLinkProps extends UnstyledButtonProps {
   icon: React.ReactNode;
   color: string;
   label: string;
@@ -38,23 +39,29 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-function FolderButton({ icon, color, label, selected, endIcon, ...props }: MainLinkProps) {
-  const { classes } = useStyles();
+const _Button = forwardRef<HTMLButtonElement, MainLinkProps>(
+  ({ icon, color, label, selected, endIcon, ...props }, ref) => {
+    const { classes } = useStyles();
 
-  return (
-    <UnstyledButton className={`${classes.button} ${selected ? 'selected' : ''}`} {...props}>
-      <Group position="apart" align="center">
-        <Group>
-          <ThemeIcon color={color} variant="light">
-            {icon}
-          </ThemeIcon>
+    return (
+      <UnstyledButton className={`${classes.button} ${selected ? 'selected' : ''}`} ref={ref} {...props}>
+        <Group position="apart" align="center">
+          <Group>
+            <ThemeIcon color={color} variant="light">
+              {icon}
+            </ThemeIcon>
 
-          <Text size="sm">{label}</Text>
+            <Text size="sm">{label}</Text>
+          </Group>
+          <Group>{endIcon}</Group>
         </Group>
-        <Group>{endIcon}</Group>
-      </Group>
-    </UnstyledButton>
-  );
-}
+      </UnstyledButton>
+    );
+  }
+);
+
+_Button.displayName = 'FolderButton';
+
+const FolderButton = createPolymorphicComponent<'button', MainLinkProps>(_Button);
 
 export default FolderButton;

@@ -1,4 +1,4 @@
-import { Alert, Center, Group, Stepper, Text } from '@mantine/core';
+import { Alert, Center, Stack, Stepper, Text } from '@mantine/core';
 import GradientButton from '../components/input/GradientButton';
 import { EyeIcon, PaperAirplaneIcon } from '@primer/octicons-react';
 import { useState } from 'react';
@@ -12,7 +12,7 @@ function Tutorial() {
         height: 'calc(100vh - 92px)',
       }}
     >
-      <Group direction="column" align="center" sx={{ width: '74%', height: '100%' }}>
+      <Stack align="center" sx={{ width: '74%', height: '100%' }}>
         <Text weight={500} size="md" mt="auto">
           Welcome to Soundux!
         </Text>
@@ -52,7 +52,7 @@ function Tutorial() {
           <Stepper.Step label="Get started" description="Create your first tab and add sounds" />
           <Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
         </Stepper>
-      </Group>
+      </Stack>
     </Center>
   );
 }
