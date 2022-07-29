@@ -39,7 +39,6 @@ function App() {
         <AppShell
           navbar={match ? <AppNavbar /> : undefined}
           header={<AppHeader />}
-          fixed
           styles={theme => ({
             main: {
               backgroundColor:
