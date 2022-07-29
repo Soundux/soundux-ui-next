@@ -1,7 +1,6 @@
 import {
   DefaultProps,
   Divider,
-  groupOptions,
   ScrollArea,
   Text,
   TextInput,
@@ -53,15 +52,11 @@ function CheckboxList({
   title,
   height = 150,
   classNames,
-  styles,
   itemPadding = 7,
   limit,
   ...others
 }: CheckboxListProps) {
-  const { classes, cx } = useStyles(
-    { ITEM_PADDING: itemPadding },
-    { name: 'CheckboxList', classNames, styles }
-  );
+  const { classes, cx } = useStyles({ ITEM_PADDING: itemPadding }, { name: 'CheckboxList', classNames });
   const unGroupedItems: React.ReactElement[] = [];
   const groupedItems: React.ReactElement[] = [];
 
@@ -79,8 +74,6 @@ function CheckboxList({
     }
   };
 
-  const sortedData: CheckboxListItem[] = groupOptions({ data: filteredData });
-
   const { scrollIntoView, targetRef, scrollableRef } = useScrollIntoView({
     duration: 0,
     offset: 5,
@@ -90,7 +83,7 @@ function CheckboxList({
 
   let groupName: string | null = null;
 
-  sortedData.forEach((item, index) => {
+  filteredData.forEach((item, index) => {
     const itemComponent = (
       <UnstyledButton
         tabIndex={-1}
