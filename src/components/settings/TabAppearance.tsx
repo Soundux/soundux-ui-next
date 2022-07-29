@@ -5,10 +5,9 @@ import {
   ColorSwatch,
   Divider,
   Group,
-  InputWrapper,
+  Input,
   Popover,
   Radio,
-  RadioGroup,
   Slider,
   Stack,
   Switch,
@@ -60,7 +59,7 @@ function TabAppearance() {
           sx={{ width: '100%' }}
           disabled={!useTransparency}
         />
-        <InputWrapper label="Accent Color" size="md">
+        <Input.Wrapper label="Accent Color" size="md">
           <Group spacing="xs">
             <ColorSwatch color={theme.colors.accent[7]}>
               <CheckIcon />
@@ -77,15 +76,25 @@ function TabAppearance() {
             <Popover
               opened={opened}
               onClose={() => setOpened(false)}
-              position="bottom"
-              placement="end"
+              position="bottom-end"
               // withCloseButton
               // transition="pop-top-right"
               // transitionDuration={0}
               width={260}
               withArrow
               // closeOnClickOutside={false}
-              target={
+              styles={theme => ({
+                body: {
+                  backgroundColor:
+                    theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
+                },
+                arrow: {
+                  backgroundColor:
+                    theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
+                },
+              })}
+            >
+              <Popover.Target>
                 <ColorSwatch
                   color={selectedCustomColor}
                   onClick={() => setOpened(true)}
@@ -98,31 +107,22 @@ function TabAppearance() {
                 >
                   <PaintbrushIcon />
                 </ColorSwatch>
-              }
-              styles={theme => ({
-                body: {
-                  backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                },
-                arrow: {
-                  backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                },
-              })}
-            >
-              <ColorInput
-                value={selectedCustomColor}
-                onChange={setSelectedCustomColor}
-                withinPortal={false}
-              />
+              </Popover.Target>
+              <Popover.Dropdown>
+                <ColorInput
+                  value={selectedCustomColor}
+                  onChange={setSelectedCustomColor}
+                  withinPortal={false}
+                />
+              </Popover.Dropdown>
             </Popover>
           </Group>
-        </InputWrapper>
-        <RadioGroup value={viewMode} onChange={setViewMode} label="View Mode">
+        </Input.Wrapper>
+        <Radio.Group value={viewMode} onChange={setViewMode} label="View Mode">
           <Radio value="list" label="List" />
           <Radio value="grid" label="Grid" />
           <Radio value="launchpad" label="Launchpad" />
-        </RadioGroup>
+        </Radio.Group>
         <TransferList
           value={customCssData}
           onChange={setCustomCssData}

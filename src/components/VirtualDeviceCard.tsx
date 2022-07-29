@@ -3,7 +3,7 @@ import {
   Card,
   Checkbox,
   Group,
-  InputWrapper,
+  Input,
   Loader,
   Slider,
   Stack,
@@ -106,7 +106,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
         <Text weight={600} inline>
           {virtualDevice.name}
         </Text>
-        <InputWrapper
+        <Input.Wrapper
           label={
             <Group spacing={5}>
               <ReactiveVolumeIcon volume={volume} /> Volume
@@ -122,7 +122,7 @@ function VirtualDeviceCard({ virtualDevice, onDelete }: VirtualDeviceCardProps) 
               virtualDevice.volume = value;
             }}
           />
-        </InputWrapper>
+        </Input.Wrapper>
         <CheckboxList
           data={connectors}
           selection={connectedTo}

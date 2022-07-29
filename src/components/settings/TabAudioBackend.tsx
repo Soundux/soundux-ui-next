@@ -1,23 +1,29 @@
 import { AlertIcon, EyeIcon } from '@primer/octicons-react';
-import { Alert, Card, CSSObject, Divider, Radio, RadioGroup, Text } from '@mantine/core';
+import { Alert, Card, createStyles, Divider, Radio, RadioStylesNames, Text } from '@mantine/core';
 import { useState } from 'react';
 
-function TabAudioBackend() {
-  const [selectedBackend, setSelectedBackend] = useState('new');
-
-  const hideCheckbox: CSSObject = {
+const useStyles = createStyles<RadioStylesNames>(() => ({
+  radioWrapper: {
     pointerEvents: 'none',
-    '& input': { display: 'none' },
+  },
+  icon: {},
+  inner: {},
+  radio: {
+    display: 'none',
+  },
+  label: {
+    justifyContent: 'stretch',
+    paddingLeft: 0,
     width: '100%',
-    '& .mantine-RadioGroup-label': {
-      width: '100%',
-      margin: 0,
+    '& > *': {
+      flexGrow: 1,
     },
-    '& .mantine-RadioGroup-label > div': {
-      width: '100%',
-      margin: 0,
-    },
-  };
+  },
+}));
+
+function TabAudioBackend() {
+  const { classes: hideCheckbox } = useStyles();
+  const [selectedBackend, setSelectedBackend] = useState('new');
 
   return (
     <Card p="xl" radius="lg">
@@ -26,20 +32,25 @@ function TabAudioBackend() {
       </Text>
       <Text size="sm">The technology to make use of to play sounds</Text>
       <Divider my="lg" variant="dotted" />
-      <RadioGroup value={selectedBackend} onChange={setSelectedBackend} orientation="vertical" size="lg">
+      <Radio.Group
+        value={selectedBackend}
+        onChange={setSelectedBackend}
+        orientation="vertical"
+        size="lg"
+      >
         <Radio value="new" label="New" />
         <Radio
           value="x1"
-          sx={hideCheckbox}
+          classNames={hideCheckbox}
           label={
-            <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="xs">
+            <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md" mb="-sm">
               Supports video formats & network streaming
             </Alert>
           }
         />
         <Radio
           value="x2"
-          sx={hideCheckbox}
+          classNames={hideCheckbox}
           label={
             <Alert icon={<AlertIcon />} title="Warning" color="yellow" radius="md">
               May be more resource intensive
@@ -49,14 +60,14 @@ function TabAudioBackend() {
         <Radio value="old" label="Old" />
         <Radio
           value="x3"
-          sx={hideCheckbox}
+          classNames={hideCheckbox}
           label={
             <Alert icon={<EyeIcon />} title="Advantages" color="green" radius="md">
               Less resource intensive
             </Alert>
           }
         />
-      </RadioGroup>
+      </Radio.Group>
     </Card>
   );
 }
