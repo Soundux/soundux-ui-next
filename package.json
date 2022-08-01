@@ -13,7 +13,7 @@
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx --ignore-path .gitignore"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
+    "@emotion/react": "^11.10.0",
     "@fontsource/open-sans": "^4.5.10",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
