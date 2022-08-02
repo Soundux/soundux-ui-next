@@ -30,6 +30,7 @@ const ItemComponent: CheckboxListItemComponent = ({
   data,
   selected,
 }: CheckboxListItemComponentProps) => {
+  const theme = useMantineTheme();
   const [advancedMode] = useAtom(advancedModeSetting);
 
   const icon = (() => {
@@ -50,7 +51,13 @@ const ItemComponent: CheckboxListItemComponent = ({
     <Group noWrap>
       {icon}
       <div style={{ flex: 1 }}>
-        <Text size="sm" weight={500} color={data.color ?? '#fff'}>
+        <Text
+          size="sm"
+          weight={500}
+          color={
+            data.color ?? (theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9])
+          }
+        >
           {data.label}
         </Text>
         {advancedMode && (
