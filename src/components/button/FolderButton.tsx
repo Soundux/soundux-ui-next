@@ -56,10 +56,11 @@ function FolderButton({ folder }: FolderButtonProps) {
       dragging={active !== null}
       endIcon={
         <>
-          <ActionIcon variant="transparent" size="xs">
+          <ActionIcon<'div'> component="div" variant="transparent" size="xs">
             <SyncIcon />
           </ActionIcon>
-          <ActionIcon
+          <ActionIcon<'div'>
+            component="div"
             variant="transparent"
             size="xs"
             onClick={() => {
