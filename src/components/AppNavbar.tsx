@@ -1,5 +1,5 @@
 import { ActionIcon, Divider, Navbar, ScrollArea } from '@mantine/core';
-import FolderButton from './input/FolderButton';
+import NavbarButton from './input/NavbarButton';
 import {
   ChevronRightIcon,
   FileDirectoryFillIcon,
@@ -43,7 +43,7 @@ function AppNavbar() {
     <Navbar width={{ base: 300 }} p="xs">
       <Navbar.Section grow mr={-10} sx={{ paddingRight: 10, paddingBottom: 10 }} component={ScrollArea}>
         {folders.map(folder => (
-          <FolderButton
+          <NavbarButton
             key={folder.id}
             icon={<FileDirectoryFillIcon />}
             color={folder.color}
@@ -77,7 +77,7 @@ function AppNavbar() {
       <Divider sx={{ marginBottom: '10px' }} />
 
       <Navbar.Section>
-        <FolderButton
+        <NavbarButton
           icon={<HeartIcon />}
           color="red"
           label="Favorites"

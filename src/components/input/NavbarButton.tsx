@@ -60,8 +60,8 @@ const _Button = forwardRef<HTMLButtonElement, MainLinkProps>(
   }
 );
 
-_Button.displayName = 'FolderButton';
+_Button.displayName = 'NavbarButton';
 
-const FolderButton = createPolymorphicComponent<'button', MainLinkProps>(_Button);
+const NavbarButton = createPolymorphicComponent<'button', MainLinkProps>(_Button);
 
-export default FolderButton;
+export default NavbarButton;
