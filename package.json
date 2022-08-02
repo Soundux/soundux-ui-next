@@ -28,7 +28,7 @@
     "@primer/octicons-react": "^17.4.0",
     "@radix-ui/react-icons": "^1.1.1",
     "@tabler/icons": "^1.78.1",
-    "fast-average-color": "^8.0.0",
+    "fast-average-color": "^9.1.1",
     "jotai": "^1.7.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
