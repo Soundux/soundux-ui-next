@@ -6,12 +6,15 @@ import { useModals } from '@mantine/modals';
 import { FileDirectoryFillIcon, SyncIcon, XIcon } from '@primer/octicons-react';
 import { ActionIcon } from '@mantine/core';
 import NavbarButton from './NavbarButton';
+import { CSS } from '@dnd-kit/utilities';
+import { useSortable } from '@dnd-kit/sortable';
 
 interface FolderButtonProps {
   folder: Folder;
 }
 
 function FolderButton({ folder }: FolderButtonProps) {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: folder.id });
   const modals = useModals();
 
   const [folders, setFolders] = useAtom(foldersAtom);
@@ -35,6 +38,11 @@ function FolderButton({ folder }: FolderButtonProps) {
         }
       }
     });
+  };
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
   };
 
   return (
@@ -62,6 +70,10 @@ function FolderButton({ folder }: FolderButtonProps) {
       onClick={() => {
         setSelectedFolder(folder.id);
       }}
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
     />
   );
 }
