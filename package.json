@@ -13,7 +13,7 @@
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx --ignore-path .gitignore"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
+    "@emotion/react": "^11.10.0",
     "@fontsource/open-sans": "^4.5.10",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
@@ -26,7 +26,7 @@
     "@radix-ui/react-icons": "^1.1.1",
     "@tabler/icons": "^1.78.1",
     "fast-average-color": "^8.0.0",
-    "jotai": "^1.7.6",
+    "jotai": "^1.7.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
@@ -34,10 +34,10 @@
   "devDependencies": {
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "~5.31.0",
-    "@typescript-eslint/parser": "~5.31.0",
+    "@typescript-eslint/eslint-plugin": "~5.32.0",
+    "@typescript-eslint/parser": "~5.32.0",
     "@vitejs/plugin-react": "^2.0.0",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
