@@ -1,6 +1,6 @@
 import { createStyles, Title, Text, Stack } from '@mantine/core';
 import { Link } from 'react-router-dom';
-import GradientButton from './input/GradientButton';
+import GradientButton from './button/GradientButton';
 import { ArrowLeftIcon } from '@primer/octicons-react';
 
 const useStyles = createStyles(theme => ({

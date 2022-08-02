@@ -1,6 +1,6 @@
 import { CheckIcon, ChevronRightIcon, SkipIcon } from '@primer/octicons-react';
 import { Card, Divider, Group, Select, Stack, Text } from '@mantine/core';
-import GradientButton from '../input/GradientButton';
+import GradientButton from '../button/GradientButton';
 import { useState } from 'react';
 import { useAtom } from 'jotai';
 import { availableMicrophonesAtom } from '../../store';

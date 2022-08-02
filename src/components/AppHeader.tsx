@@ -10,10 +10,10 @@ import {
   InfoIcon,
   PencilIcon,
 } from '@primer/octicons-react';
-import NavigationButton from './input/NavigationButton';
+import NavigationButton from './button/NavigationButton';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
-import CompactButton from './input/CompactButton';
-import OutputSelection from './input/OutputSelection';
+import CompactButton from './button/CompactButton';
+import OutputSelection from './button/OutputSelection';
 
 const useStyles = createStyles(theme => ({
   icon: {

@@ -13,7 +13,7 @@ import {
 import Wave from '../assets/wave.png';
 import { useState } from 'react';
 import { CheckIcon, CopyIcon, UnmuteIcon } from '@primer/octicons-react';
-import GradientButton from '../components/input/GradientButton';
+import GradientButton from '../components/button/GradientButton';
 import { ScissorsIcon } from '@radix-ui/react-icons';
 import { useAtom } from 'jotai';
 import { foldersAtom } from '../store';

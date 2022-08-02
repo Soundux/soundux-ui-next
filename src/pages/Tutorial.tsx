@@ -1,5 +1,5 @@
 import { Alert, Center, Stack, Stepper, Text } from '@mantine/core';
-import GradientButton from '../components/input/GradientButton';
+import GradientButton from '../components/button/GradientButton';
 import { EyeIcon, PaperAirplaneIcon } from '@primer/octicons-react';
 import { useState } from 'react';
 

@@ -1,5 +1,5 @@
 import { Card, Center, Group, Stack, Text } from '@mantine/core';
-import GradientButton from '../components/input/GradientButton';
+import GradientButton from '../components/button/GradientButton';
 import { HeartIcon, HomeIcon, InfoIcon, LawIcon } from '@primer/octicons-react';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

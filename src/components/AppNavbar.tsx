@@ -1,5 +1,5 @@
 import { ActionIcon, Divider, Navbar, ScrollArea } from '@mantine/core';
-import NavbarButton from './input/NavbarButton';
+import NavbarButton from './button/NavbarButton';
 import {
   ChevronRightIcon,
   FileDirectoryFillIcon,

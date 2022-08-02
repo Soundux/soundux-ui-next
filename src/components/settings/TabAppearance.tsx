@@ -16,7 +16,7 @@ import {
   TransferListData,
   useMantineTheme,
 } from '@mantine/core';
-import GradientButton from '../input/GradientButton';
+import GradientButton from '../button/GradientButton';
 import { useState } from 'react';
 import { useAtom } from 'jotai';
 import { enableTransparencySetting, transparencySetting } from '../../store/settings';
