@@ -14,7 +14,9 @@ interface FolderButtonProps {
 }
 
 function FolderButton({ folder }: FolderButtonProps) {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: folder.id });
+  const { attributes, listeners, setNodeRef, transform, transition, active } = useSortable({
+    id: folder.id,
+  });
   const modals = useModals();
 
   const [folders, setFolders] = useAtom(foldersAtom);
@@ -51,6 +53,7 @@ function FolderButton({ folder }: FolderButtonProps) {
       color={folder.color}
       label={folder.name}
       selected={selectedFolder === folder.id}
+      dragging={active !== null}
       endIcon={
         <>
           <ActionIcon variant="transparent" size="xs">
